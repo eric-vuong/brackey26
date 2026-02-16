@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://g0wg7ceiiqwy"]
+
+[ext_resource type="Script" uid="uid://btxwe641t4vdc" path="res://Scenes/sound.gd" id="1_djale"]
+
+[node name="Sound" type="Node2D" unique_id=685124963]
+script = ExtResource("1_djale")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=665807224]
+bus = &"Music"
+
+[node name="AudioPlayers" type="Node2D" parent="." unique_id=565516223]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=48036347]
+max_polyphony = 10
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=1463399158]
+max_polyphony = 10
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=1294467334]
+max_polyphony = 10
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=281798470]
+max_polyphony = 10
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=1543808249]
+max_polyphony = 10

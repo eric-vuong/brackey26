@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bqf1l0ix8wfvb"]
+
+[ext_resource type="Script" uid="uid://dy0v6o7hvufme" path="res://Scenes/main.gd" id="1_8gbba"]
+[ext_resource type="Texture2D" uid="uid://bhvy8xtqmjjgf" path="res://icon.svg" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://dktel8vpfqk8c" path="res://Scenes/pause_menu.tscn" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://g0wg7ceiiqwy" path="res://Scenes/sound.tscn" id="4_jjvhh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bo1nx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jjgbg")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Main" type="Node2D" unique_id=1827338630]
+script = ExtResource("1_8gbba")
+
+[node name="TestFlicker" type="AnimatedSprite2D" parent="." unique_id=94824932]
+z_index = 1
+position = Vector2(902, 494)
+sprite_frames = SubResource("SpriteFrames_bo1nx")
+autoplay = "default"
+frame_progress = 0.72460306
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1616121685]
+position = Vector2(996, 567)
+scale = Vector2(16.5625, 9.859375)
+texture = ExtResource("1_jjgbg")
+
+[node name="PauseButton" type="Button" parent="." unique_id=424470996]
+process_mode = 3
+offset_left = 1670.0
+offset_top = 50.0
+offset_right = 1870.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 32
+text = "Pause Game"
+
+[node name="PauseMenu" parent="." unique_id=1685315995 instance=ExtResource("3_jjvhh")]
+
+[node name="Sound" parent="." unique_id=685124963 instance=ExtResource("4_jjvhh")]
+
+[node name="Debug" type="Node2D" parent="." unique_id=1397661446]
+position = Vector2(1675, 261)
+
+[node name="M" type="Button" parent="Debug" unique_id=1832934754]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 32
+text = "Random Music"
+
+[node name="S" type="Button" parent="Debug" unique_id=132654260]
+offset_top = 58.0
+offset_right = 126.0
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 32
+text = "Random Sound"
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Debug/M" to="." method="_on_m_pressed"]
+[connection signal="pressed" from="Debug/S" to="." method="_on_s_pressed"]

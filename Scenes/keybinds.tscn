@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://cphnxnjbfu6k1"]
+
+[ext_resource type="Script" uid="uid://ck2odtl1cx8b8" path="res://Scenes/keybinds.gd" id="1_2revg"]
+[ext_resource type="PackedScene" uid="uid://d3ndkehybiuxt" path="res://Scenes/keybind.tscn" id="2_de5hr"]
+
+[node name="Keybinds" type="ColorRect" unique_id=1852271087]
+custom_minimum_size = Vector2(355, 290)
+offset_right = 151.0
+offset_bottom = 73.0
+mouse_filter = 2
+color = Color(0.34781694, 0.34781697, 0.3478169, 1)
+script = ExtResource("1_2revg")
+
+[node name="Controls" type="Label" parent="." unique_id=620659929]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.0
+offset_right = 33.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Controls"
+
+[node name="Button" type="Button" parent="." unique_id=201708996]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 48.0
+offset_right = 92.0
+offset_bottom = 79.0
+text = "Reset"
+
+[node name="Up" parent="." unique_id=1353546995 instance=ExtResource("2_de5hr")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 128.0
+offset_top = 23.0
+offset_right = 228.0
+offset_bottom = 98.0
+grow_horizontal = 1
+grow_vertical = 1
+action = "up"
+
+[node name="Down" parent="." unique_id=1027118861 instance=ExtResource("2_de5hr")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 128.0
+offset_top = 111.0
+offset_right = 228.0
+offset_bottom = 186.0
+grow_horizontal = 1
+grow_vertical = 1
+action = "down"
+
+[node name="Jump" parent="." unique_id=880234765 instance=ExtResource("2_de5hr")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 128.0
+offset_top = 199.0
+offset_right = 228.0
+offset_bottom = 274.0
+grow_horizontal = 1
+grow_vertical = 1
+action = "jump"
+
+[node name="Left" parent="." unique_id=2134235411 instance=ExtResource("2_de5hr")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 16.0
+offset_top = 111.0
+offset_right = 116.0
+offset_bottom = 186.0
+grow_horizontal = 1
+grow_vertical = 1
+action = "left"
+
+[node name="Pause" parent="." unique_id=2127843511 instance=ExtResource("2_de5hr")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 16.0
+offset_top = 199.0
+offset_right = 116.0
+offset_bottom = 274.0
+grow_horizontal = 1
+grow_vertical = 1
+action = "pause"
+
+[node name="Right" parent="." unique_id=704959297 instance=ExtResource("2_de5hr")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 240.0
+offset_top = 111.0
+offset_right = 340.0
+offset_bottom = 186.0
+grow_horizontal = 1
+grow_vertical = 1
+action = "right"
+
+[node name="Interact" parent="." unique_id=1988953314 instance=ExtResource("2_de5hr")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 240.0
+offset_top = 199.0
+offset_right = 340.0
+offset_bottom = 274.0
+grow_horizontal = 1
+grow_vertical = 1
+action = "interact"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
