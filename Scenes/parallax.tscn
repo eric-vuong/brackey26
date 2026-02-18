@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dc1y2x0fpuoij"]
+
+[ext_resource type="Script" uid="uid://b6mhi5q07x13q" path="res://Scenes/parallax.gd" id="1_vieis"]
+[ext_resource type="Texture2D" uid="uid://bevw5vf4vmh4o" path="res://Assets/Textures/middleplus (z 1).png" id="2_v1p2m"]
+[ext_resource type="Texture2D" uid="uid://cnkh1yu2wcb0l" path="res://Assets/Textures/bg_3 (z -3).png" id="3_acil8"]
+[ext_resource type="Texture2D" uid="uid://md11ateodlfj" path="res://Assets/Textures/distant.png" id="3_n5moj"]
+[ext_resource type="Texture2D" uid="uid://b0k120elrxmgu" path="res://Assets/Textures/bg_1 (z -1).png" id="3_ngbw4"]
+[ext_resource type="Texture2D" uid="uid://bmhwqhf1mtwhg" path="res://Assets/Textures/middleground (z 0).png" id="3_oukyj"]
+[ext_resource type="Texture2D" uid="uid://lx11lf7776dw" path="res://Assets/Textures/bg_2 (z -2).png" id="4_hd2e0"]
+[ext_resource type="PackedScene" uid="uid://07lcw82dnwkj" path="res://Scenes/platformer.tscn" id="8_v1p2m"]
+
+[node name="Parallax" type="Node2D" unique_id=403349311]
+script = ExtResource("1_vieis")
+
+[node name="World" type="Node2D" parent="." unique_id=952345749]
+
+[node name="Front" type="Parallax2D" parent="World" unique_id=1117177234]
+scroll_scale = Vector2(1.2, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Front" unique_id=1278118093]
+z_index = 12
+position = Vector2(2268, 885)
+texture = ExtResource("2_v1p2m")
+
+[node name="Center" type="Parallax2D" parent="World" unique_id=576407480]
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Center" unique_id=1299376846]
+z_index = 10
+position = Vector2(918, 557)
+texture = ExtResource("3_oukyj")
+
+[node name="Tree1" type="Parallax2D" parent="World" unique_id=482725355]
+scroll_scale = Vector2(0.88, 1)
+scroll_offset = Vector2(553, 581)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Tree1" unique_id=1477797306]
+z_index = 6
+position = Vector2(88, -171)
+texture = ExtResource("3_ngbw4")
+
+[node name="Tree2" type="Parallax2D" parent="World" unique_id=1655983601]
+scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(145, 595)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Tree2" unique_id=1825042681]
+z_index = 4
+texture = ExtResource("4_hd2e0")
+
+[node name="Tree3" type="Parallax2D" parent="World" unique_id=269200499]
+scroll_scale = Vector2(0.5, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Tree3" unique_id=485103020]
+z_index = 2
+position = Vector2(1477, 742)
+texture = ExtResource("3_acil8")
+
+[node name="Farthest" type="Parallax2D" parent="World" unique_id=991487964]
+scroll_scale = Vector2(0.3, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Farthest" unique_id=1023533564]
+position = Vector2(842, 440)
+texture = ExtResource("3_n5moj")
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=284185608]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground" unique_id=388527576]
+build_mode = 1
+polygon = PackedVector2Array(-2077, 984, -1763, 972, -1605, 961, -1372, 966, -1093, 985, -842, 977, -556, 961, -386, 963, -94, 973, 125, 951, 336, 926, 509, 932, 725, 940, 913, 924, 1070, 878, 1166, 818, 1282, 796, 1429, 789, 1597, 770, 1727, 759, 1815, 774, 1885, 804, 1940, 825, 2139, 855, 2404, 875, 2689, 900, 2919, 925, 3133, 934, 3370, 946, 3545, 939, 3693, 947, 3834, 949, 4141, 958, 4185, 1743, -2157, 1703)
+
+[node name="UpperGround" type="StaticBody2D" parent="." unique_id=2051096653]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UpperGround" unique_id=1765498480]
+build_mode = 1
+polygon = PackedVector2Array(2870, 763, 2971, 743, 3043, 752, 3456, 658, 3589, 611, 3729, 606, 3902, 605, 4086, 589, 4087, 661, 4034, 676, 3613, 698, 3220, 800, 2999, 839, 2867, 851, 2851, 784)
+one_way_collision = true
+
+[node name="Platformer" parent="." unique_id=646728528 instance=ExtResource("8_v1p2m")]
+z_index = 10
+position = Vector2(910, 525)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1643128061]
+offset = Vector2(0, 540)

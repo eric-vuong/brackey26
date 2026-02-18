@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://07lcw82dnwkj"]
+
+[ext_resource type="Texture2D" uid="uid://bhvy8xtqmjjgf" path="res://icon.svg" id="1_41awe"]
+[ext_resource type="Script" uid="uid://da03vcv4hxpc3" path="res://Scenes/platformer.gd" id="1_k0oe1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0oe1"]
+radius = 61.0
+height = 138.0
+
+[node name="Platformer" type="CharacterBody2D" unique_id=646728528]
+script = ExtResource("1_k0oe1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1020085011]
+shape = SubResource("CapsuleShape2D_k0oe1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=52307561]
+texture = ExtResource("1_41awe")
