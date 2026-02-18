@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b8m80utte5tdd"]
+
+[ext_resource type="Script" uid="uid://b3smmp4781yvl" path="res://Scenes/transition.gd" id="1_jnsx0"]
+[ext_resource type="Texture2D" uid="uid://bhvy8xtqmjjgf" path="res://icon.svg" id="2_ah04o"]
+
+[node name="Transition" type="CanvasLayer" unique_id=1746153197]
+layer = 2
+script = ExtResource("1_jnsx0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1470617214]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="." unique_id=45601227]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Fade away"
+
+[node name="Button2" type="Button" parent="." unique_id=2011963624]
+offset_left = 105.0
+offset_top = 1.0
+offset_right = 216.0
+offset_bottom = 32.0
+text = "Fade to black"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=612840415]
+z_index = -1
+position = Vector2(1013, 466)
+scale = Vector2(9.5625, 3.921875)
+texture = ExtResource("2_ah04o")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

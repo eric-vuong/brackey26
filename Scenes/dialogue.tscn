@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cusd8i2urcowf"]
+
+[ext_resource type="Script" uid="uid://cnwqrtmsb0xdl" path="res://Scenes/dialogue.gd" id="1_dgfud"]
+[ext_resource type="Texture2D" uid="uid://bhvy8xtqmjjgf" path="res://icon.svg" id="2_p21q5"]
+
+[node name="Dialogue" type="CanvasLayer" unique_id=1763889580]
+script = ExtResource("1_dgfud")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=677622958]
+offset_left = 179.0
+offset_top = 776.0
+offset_right = 1747.0
+offset_bottom = 1033.0
+color = Color(0.19255567, 0.1925557, 0.19255567, 1)
+
+[node name="Label" type="Label" parent="." unique_id=447803222]
+offset_left = 294.0
+offset_top = 797.0
+offset_right = 1637.0
+offset_bottom = 1016.0
+theme_override_font_sizes/font_size = 32
+text = "The dialogue looks like this"
+
+[node name="Actors" type="Node2D" parent="." unique_id=530615938]
+z_index = -1
+
+[node name="Player" type="Sprite2D" parent="Actors" unique_id=1019264881]
+position = Vector2(347, 531)
+scale = Vector2(4.953125, 4.9921875)
+texture = ExtResource("2_p21q5")
+
+[node name="Actor1" type="Sprite2D" parent="Actors" unique_id=772903421]
+position = Vector2(1558, 518)
+scale = Vector2(4.953125, 4.9921875)
+texture = ExtResource("2_p21q5")

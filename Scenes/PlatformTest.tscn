@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dbi4exp26wnvr"]
+
+[ext_resource type="Script" uid="uid://c1kcgroaxm8mf" path="res://Scenes/test_2.gd" id="1_e5djp"]
+[ext_resource type="PackedScene" uid="uid://bgbbv8mqcyq2k" path="res://Scenes/platform_level.tscn" id="2_fggm7"]
+[ext_resource type="PackedScene" uid="uid://cusd8i2urcowf" path="res://Scenes/dialogue.tscn" id="3_av6it"]
+
+[node name="PlatformTest" type="Node2D" unique_id=2127313795]
+script = ExtResource("1_e5djp")
+
+[node name="PlatformLevel" parent="." unique_id=688040870 instance=ExtResource("2_fggm7")]
+
+[node name="Button" type="Button" parent="." unique_id=1311076430]
+visible = false
+offset_left = 856.0
+offset_top = 27.0
+offset_right = 931.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 32
+text = "OOF"
+
+[node name="Dialogue" parent="." unique_id=1763889580 instance=ExtResource("3_av6it")]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c210etahuh6tq"]
+
+[ext_resource type="Script" uid="uid://co7f0npfyqq33" path="res://Scenes/ParallaxTest.gd" id="1_lc1oi"]
+[ext_resource type="PackedScene" uid="uid://dc1y2x0fpuoij" path="res://Scenes/parallax.tscn" id="2_qc4db"]
+[ext_resource type="PackedScene" uid="uid://cusd8i2urcowf" path="res://Scenes/dialogue.tscn" id="3_ys1qc"]
+
+[node name="ParallaxTest" type="Node2D" unique_id=1731480580]
+script = ExtResource("1_lc1oi")
+
+[node name="Parallax" parent="." unique_id=403349311 instance=ExtResource("2_qc4db")]
+
+[node name="Dialogue" parent="." unique_id=2065556601 instance=ExtResource("3_ys1qc")]
+
+[node name="Button" type="Button" parent="." unique_id=458633456]
+offset_left = 318.0
+offset_top = 54.0
+offset_right = 532.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 32
+text = "Test dialogue"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
