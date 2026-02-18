@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://2nal4juvh3po"]
+
+[ext_resource type="Script" uid="uid://beicgrx6oyrf7" path="res://dropper.gd" id="1_xe1o8"]
+
+[node name="Dropper" type="Node2D" unique_id=1064637378]
+script = ExtResource("1_xe1o8")
