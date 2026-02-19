@@ -77,6 +77,8 @@ one_way_collision = true
 [node name="Platformer" parent="." unique_id=646728528 instance=ExtResource("8_v1p2m")]
 z_index = 10
 position = Vector2(910, 525)
+speed = 500.0
+jump_speed = -1150.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1643128061]
 offset = Vector2(0, 540)
