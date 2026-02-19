@@ -1,6 +1,84 @@
 [gd_scene format=3 uid="uid://2nal4juvh3po"]
 
-[ext_resource type="Script" uid="uid://beicgrx6oyrf7" path="res://dropper.gd" id="1_xe1o8"]
+[ext_resource type="Script" uid="uid://2jcgty0y0bs0" path="res://Scenes/dropper.gd" id="1_hn51c"]
+[ext_resource type="Texture2D" uid="uid://l28hk74x8ihy" path="res://Assets/Textures/Cave/background4a.png" id="2_u13ar"]
+[ext_resource type="Texture2D" uid="uid://bb7kx6lrjbiiw" path="res://Assets/Textures/Cave/background3.png" id="3_52mk5"]
+[ext_resource type="Texture2D" uid="uid://bcvk77e6ltefh" path="res://Assets/Textures/Cave/background2.png" id="4_hn51c"]
+[ext_resource type="Texture2D" uid="uid://dhhu46citaq7q" path="res://Assets/Textures/Cave/background1.png" id="5_q6jdp"]
+[ext_resource type="Texture2D" uid="uid://ca53fllyrxwbs" path="res://Assets/Textures/Cave/background4a_cropped.png" id="6_52mk5"]
+[ext_resource type="PackedScene" uid="uid://07lcw82dnwkj" path="res://Scenes/platformer.tscn" id="7_q6jdp"]
+[ext_resource type="Texture2D" uid="uid://j6rl1y55cufy" path="res://Assets/Textures/Cave/watercrop.png" id="8_q6jdp"]
 
 [node name="Dropper" type="Node2D" unique_id=1064637378]
-script = ExtResource("1_xe1o8")
+script = ExtResource("1_hn51c")
+
+[node name="Terrain" type="Node2D" parent="." unique_id=956417390]
+
+[node name="Background4a" type="Sprite2D" parent="Terrain" unique_id=283778879]
+position = Vector2(960.00006, 1920)
+rotation = -1.5707964
+scale = Vector2(4, -4)
+texture = ExtResource("2_u13ar")
+
+[node name="Parallax2D" type="Parallax2D" parent="Terrain" unique_id=1210648325]
+scroll_scale = Vector2(1, 0.8)
+
+[node name="Background3" type="Sprite2D" parent="Terrain/Parallax2D" unique_id=1261869663]
+self_modulate = Color(0.41598046, 0.41598043, 0.4159804, 1)
+z_index = -1
+position = Vector2(960.00006, 1920)
+rotation = -1.5707964
+scale = Vector2(4, -4)
+texture = ExtResource("3_52mk5")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Terrain" unique_id=1522680417]
+scroll_scale = Vector2(1, 0.6)
+
+[node name="Background2" type="Sprite2D" parent="Terrain/Parallax2D2" unique_id=2021832118]
+self_modulate = Color(0.47007585, 0.47007585, 0.47007585, 1)
+z_index = -2
+position = Vector2(960.00006, 1920)
+rotation = -1.5707964
+scale = Vector2(4, -4)
+texture = ExtResource("4_hn51c")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Terrain" unique_id=167606072]
+scroll_scale = Vector2(1, 0.3)
+
+[node name="Background1" type="Sprite2D" parent="Terrain/Parallax2D3" unique_id=1968512148]
+self_modulate = Color(0.52312034, 0.5231203, 0.5231203, 1)
+z_index = -3
+position = Vector2(960.00006, 1920)
+rotation = -1.5707964
+scale = Vector2(4, -4)
+texture = ExtResource("5_q6jdp")
+
+[node name="Background4b" type="Sprite2D" parent="Terrain" unique_id=1025862921]
+self_modulate = Color(0.79909855, 0.89385355, 0.99999994, 1)
+z_index = -1
+position = Vector2(1049, 3892)
+scale = Vector2(4, 4)
+texture = ExtResource("6_52mk5")
+
+[node name="Platformer" parent="." unique_id=646728528 instance=ExtResource("7_q6jdp")]
+position = Vector2(570, 260)
+gravity_mod = 4.0
+max_falling_spd = 750.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1019105826]
+position = Vector2(960, 540)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1167122296]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=367680755]
+polygon = PackedVector2Array(443, 7, 411, 204, 458, 219, 456, 266, 384, 283, 362, 345, 626, 423, 746, 418, 763, 438, 411, 615, 367, 709, 391, 741, 457, 751, 458, 787, 591, 799, 595, 839, 684, 865, 733, 880, 732, 906, 686, 959, 437, 1043, 384, 1090, 357, 1143, 399, 1175, 483, 1205, 516, 1240, 542, 1305, 576, 1310, 576, 1344, 513, 1364, 503, 1391, 529, 1411, 734, 1438, 738, 1471, 580, 1503, 562, 1553, 645, 1630, 651, 1670, 579, 1681, 531, 1785, 483, 1783, 466, 1836, 526, 1853, 668, 1865, 689, 1898, 811, 1889, 830, 1915, 825, 1939, 741, 1961, 646, 2033, 425, 2092, 329, 2155, 320, 2198, 371, 2225, 323, 2271, 319, 2326, 355, 2330, 369, 2384, 427, 2392, 437, 2426, 464, 2463, 556, 2500, 590, 2501, 598, 2546, 481, 2575, 458, 2609, 445, 2640, 489, 2667, 515, 2685, 591, 2659, 680, 2663, 670, 2710, 590, 2742, 589, 2772, 564, 2795, 584, 2840, 603, 2838, 602, 2887, 644, 2907, 645, 2958, 578, 2961, 566, 3030, 668, 3039, 678, 3065, 556, 3090, 511, 3170, 464, 3168, 443, 3199, 455, 3222, 451, 3271, 531, 3285, 537, 3316, 596, 3324, 594, 3371, 552, 3381, 535, 3407, 471, 3415, 441, 3461, 502, 3478, 517, 3500, 579, 3499, 603, 3543, 717, 3552, 745, 3591, 808, 3602, 819, 3633, 868, 3628, 864, 3661, 831, 3661, 817, 3710, 770, 4130, 744, 4318, -135, 4363, -102, -56)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1009239334]
+polygon = PackedVector2Array(1723, 1, 1523, 45, 1525, 87, 1738, 170, 1628, 316, 1623, 560, 1630, 603, 1521, 627, 1541, 683, 1620, 720, 1591, 773, 1448, 833, 1280, 828, 1235, 864, 1242, 915, 1197, 925, 1190, 980, 1143, 969, 1145, 1009, 1246, 1053, 1252, 1133, 1165, 1118, 1155, 1148, 1199, 1178, 1224, 1258, 1234, 1308, 1270, 1321, 1306, 1391, 1451, 1426, 1448, 1497, 1644, 1578, 1673, 1628, 1753, 1667, 1745, 1699, 1650, 1731, 1639, 1783, 1766, 1820, 1763, 1855, 1718, 1910, 1706, 1951, 1657, 1991, 1568, 1992, 1529, 2030, 1424, 2022, 1410, 2041, 1414, 2121, 1502, 2214, 1829, 2293, 1627, 2329, 1596, 2363, 1592, 2425, 1546, 2435, 1544, 2463, 1499, 2481, 1503, 2511, 1675, 2718, 1674, 2775, 1629, 2764, 1604, 2829, 1612, 2860, 1561, 2860, 1549, 2907, 1502, 2904, 1505, 2956, 1555, 2979, 1596, 3020, 1558, 3056, 1518, 3055, 1477, 3075, 1453, 3083, 1450, 3125, 1530, 3145, 1547, 3190, 1622, 3227, 1631, 3276, 1520, 3290, 1499, 3320, 1432, 3342, 1417, 3362, 1416, 3373, 1373, 3370, 1372, 3401, 1406, 3417, 1418, 3459, 1448, 3490, 1422, 3544, 1400, 3554, 1298, 3553, 1282, 3569, 1287, 3582, 1316, 3590, 1325, 3619, 1341, 3624, 1348, 3675, 1372, 3737, 1412, 4335, 2163, 4368, 2212, -80)
+
+[node name="Watercrop" type="Sprite2D" parent="." unique_id=119792116]
+self_modulate = Color(0.79909855, 0.89385355, 0.99999994, 1)
+z_index = 50
+position = Vector2(1043, 4176)
+scale = Vector2(4, 4)
+texture = ExtResource("8_q6jdp")

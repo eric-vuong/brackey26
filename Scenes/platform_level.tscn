@@ -14829,6 +14829,7 @@ tile_set = SubResource("TileSet_g5eg6")
 position = Vector2(47, 871)
 speed = 600.0
 jump_speed = -1400.0
+scale_mod = 5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1731121821]
 
