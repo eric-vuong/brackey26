@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://07lcw82dnwkj" path="res://Scenes/platformer.tscn" id="7_q6jdp"]
 [ext_resource type="Texture2D" uid="uid://j6rl1y55cufy" path="res://Assets/Textures/Cave/watercrop.png" id="8_q6jdp"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6jdp"]
+size = Vector2(570, 61)
+
 [node name="Dropper" type="Node2D" unique_id=1064637378]
 script = ExtResource("1_hn51c")
 
@@ -64,6 +67,7 @@ texture = ExtResource("6_52mk5")
 position = Vector2(570, 260)
 gravity_mod = 4.0
 max_falling_spd = 750.0
+scale_mod = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1019105826]
 position = Vector2(960, 540)
@@ -82,3 +86,11 @@ z_index = 50
 position = Vector2(1043, 4176)
 scale = Vector2(4, 4)
 texture = ExtResource("8_q6jdp")
+
+[node name="Pool" type="Area2D" parent="." unique_id=1010675370]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pool" unique_id=1406528195]
+position = Vector2(1089, 3951.5)
+shape = SubResource("RectangleShape2D_q6jdp")
+
+[connection signal="body_shape_entered" from="Pool" to="." method="_on_pool_body_shape_entered"]
