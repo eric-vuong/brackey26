@@ -33,3 +33,8 @@ texture = ExtResource("2_p21q5")
 position = Vector2(1558, 518)
 scale = Vector2(4.953125, 4.9921875)
 texture = ExtResource("2_p21q5")
+
+[node name="Knight" type="Sprite2D" parent="Actors" unique_id=404374767]
+position = Vector2(1558, 518)
+scale = Vector2(4.953125, 4.9921875)
+texture = ExtResource("2_p21q5")

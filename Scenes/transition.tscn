@@ -17,11 +17,13 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Button" type="Button" parent="." unique_id=45601227]
+visible = false
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Fade away"
 
 [node name="Button2" type="Button" parent="." unique_id=2011963624]
+visible = false
 offset_left = 105.0
 offset_top = 1.0
 offset_right = 216.0
@@ -29,6 +31,7 @@ offset_bottom = 32.0
 text = "Fade to black"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=612840415]
+visible = false
 z_index = -1
 position = Vector2(1013, 466)
 scale = Vector2(9.5625, 3.921875)

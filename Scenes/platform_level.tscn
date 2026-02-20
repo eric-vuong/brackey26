@@ -14794,6 +14794,12 @@ size = Vector2(84, 13.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_isvty"]
 size = Vector2(120, 122)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtnv1"]
+size = Vector2(44, 1344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buthl"]
+size = Vector2(94, 453)
+
 [node name="PlatformLevel" type="Node2D" unique_id=688040870]
 script = ExtResource("1_r70er")
 
@@ -14826,7 +14832,7 @@ tile_map_data = PackedByteArray("AAAPAA8AAAAAAAAAAAAvAA8AAAAAAAAAAABPAA8AAAAAAAA
 tile_set = SubResource("TileSet_g5eg6")
 
 [node name="Platformer" parent="." unique_id=646728528 instance=ExtResource("2_fuiq5")]
-position = Vector2(47, 871)
+position = Vector2(162, 713)
 speed = 600.0
 jump_speed = -1400.0
 scale_mod = 5
@@ -14876,5 +14882,20 @@ texture = ExtResource("4_kr3da")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item" unique_id=25037751]
 shape = SubResource("RectangleShape2D_isvty")
 
+[node name="ToParallax" type="Area2D" parent="." unique_id=1977989918]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToParallax" unique_id=908116695]
+position = Vector2(12, 269)
+shape = SubResource("RectangleShape2D_qtnv1")
+
+[node name="CactusTalk" type="Area2D" parent="." unique_id=876487668]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CactusTalk" unique_id=985834956]
+position = Vector2(1755, 730.5)
+shape = SubResource("RectangleShape2D_buthl")
+
 [connection signal="body_shape_entered" from="BoxTrigger" to="." method="_on_box_trigger_body_shape_entered"]
 [connection signal="body_shape_entered" from="Item" to="." method="_on_item_body_shape_entered"]
+[connection signal="body_shape_entered" from="ToParallax" to="." method="_on_to_parallax_body_shape_entered"]
+[connection signal="body_shape_entered" from="CactusTalk" to="." method="_on_cactus_talk_body_shape_entered"]
+[connection signal="body_shape_exited" from="CactusTalk" to="." method="_on_cactus_talk_body_shape_exited"]
