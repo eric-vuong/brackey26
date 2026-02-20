@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://btxwe641t4vdc" path="res://Scenes/sound.gd" id="1_djale"]
 
-[node name="Sound" type="Node2D" unique_id=685124963]
+[node name="Sound" type="Node2D" unique_id=685124963 groups=["Sound"]]
 script = ExtResource("1_djale")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=665807224]
 bus = &"Music"
+
+[node name="DialoguePlayer" type="AudioStreamPlayer" parent="." unique_id=194807029]
+bus = &"Effect"
 
 [node name="AudioPlayers" type="Node2D" parent="." unique_id=565516223]
 

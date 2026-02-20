@@ -12,14 +12,12 @@ func _input(_event):
 		if interact_target == "knight":
 			if main.can_move:
 				get_viewport().set_input_as_handled()
-				print("Knight dialogue")
 				main.show_dialogue("knight")
 				$Platformer.stop()
 		
 @warning_ignore("unused_parameter")
 func _physics_process(delta):
 	cam.global_position[0] = clamp($Platformer.global_position[0], -1103, 2976)
-	#print($Platformer.global_position[0])
 
 ## Put player here
 func set_player_position(pos: Vector2):
@@ -60,7 +58,6 @@ func _on_area_2d_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index
 @warning_ignore("unused_parameter")
 func _on_death_zone_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	pass # Replace with function body.
-	print("deathzone")
 	main.can_move = false
 	$Knight.flip_h = false
 	$Platformer.flip_sprite(true)
@@ -78,7 +75,6 @@ func _on_explosion_frame_changed() -> void:
 	exp_frame += 1
 	if exp_frame == 4:
 		$Knight.hide()
-	#print(exp_frame)
 	if exp_frame == 11:
 		await get_tree().create_timer(0.35).timeout
 		$Explosion.queue_free()

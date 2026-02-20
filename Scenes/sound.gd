@@ -12,6 +12,8 @@ var music_list: Dictionary = {}
 var audio_players: Array = []
 ## File name of current song
 var current_music: String = ""
+## Used to pitch shift dialogue
+var rng := RandomNumberGenerator.new()
 func _ready() -> void:
 	# Setup sound list
 	var dir = "res://Assets/sound/"
@@ -33,6 +35,22 @@ func _ready() -> void:
 			music_name = music_name.replace(".import", "")
 			if music_name.get_extension() in FILE_TYPES:
 				music_list[str(music_name)] = load(str(m_dir) + str(music_name))
+
+## Start playing dialogue blip
+func play_dialogue(sound: String):
+	if sound == "":
+		$DialoguePlayer.stop()
+		return
+	if sound not in sound_list:
+		return
+	if $DialoguePlayer.playing == true:
+		if $DialoguePlayer.stream == sound_list[sound]:
+			# Already actively playing this sound
+			return
+	# Play the dialogue blip
+	$DialoguePlayer.pitch_scale = rng.randf_range(0.95, 1.08)
+	$DialoguePlayer.stream = sound_list[sound]
+	$DialoguePlayer.play()
 
 ## Play music track. Only 1 song at a time, that loops.
 func play_music(music: String = "", decibels: float = 0.0) -> void:

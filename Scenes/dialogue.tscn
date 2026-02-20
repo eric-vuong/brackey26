@@ -5,6 +5,7 @@
 
 [node name="Dialogue" type="CanvasLayer" unique_id=1763889580]
 script = ExtResource("1_dgfud")
+text_pause = 0.5
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=677622958]
 offset_left = 179.0
@@ -13,12 +14,12 @@ offset_right = 1747.0
 offset_bottom = 1033.0
 color = Color(0.19255567, 0.1925557, 0.19255567, 1)
 
-[node name="Label" type="Label" parent="." unique_id=447803222]
+[node name="Label" type="RichTextLabel" parent="." unique_id=1662410258]
 offset_left = 294.0
 offset_top = 797.0
 offset_right = 1637.0
 offset_bottom = 1016.0
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/normal_font_size = 32
 text = "The dialogue looks like this"
 
 [node name="Actors" type="Node2D" parent="." unique_id=530615938]
@@ -38,3 +39,7 @@ texture = ExtResource("2_p21q5")
 position = Vector2(1558, 518)
 scale = Vector2(4.953125, 4.9921875)
 texture = ExtResource("2_p21q5")
+
+[node name="Timer" type="Timer" parent="." unique_id=887052559]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
