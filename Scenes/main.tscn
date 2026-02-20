@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bhvy8xtqmjjgf" path="res://icon.svg" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dktel8vpfqk8c" path="res://Scenes/pause_menu.tscn" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://g0wg7ceiiqwy" path="res://Scenes/sound.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://b8m80utte5tdd" path="res://Scenes/transition.tscn" id="4_kry3j"]
+[ext_resource type="PackedScene" uid="uid://cusd8i2urcowf" path="res://Scenes/dialogue.tscn" id="6_21xkr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bo1nx"]
 animations = [{
@@ -19,20 +21,8 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="Main" type="Node2D" unique_id=1827338630]
+[node name="Main" type="Node2D" unique_id=1827338630 groups=["Main"]]
 script = ExtResource("1_8gbba")
-
-[node name="TestFlicker" type="AnimatedSprite2D" parent="." unique_id=94824932]
-z_index = 1
-position = Vector2(902, 494)
-sprite_frames = SubResource("SpriteFrames_bo1nx")
-autoplay = "default"
-frame_progress = 0.72460306
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1616121685]
-position = Vector2(996, 567)
-scale = Vector2(16.5625, 9.859375)
-texture = ExtResource("1_jjgbg")
 
 [node name="PauseButton" type="Button" parent="." unique_id=424470996]
 process_mode = 3
@@ -47,7 +37,10 @@ text = "Pause Game"
 
 [node name="Sound" parent="." unique_id=685124963 instance=ExtResource("4_jjvhh")]
 
+[node name="Transition" parent="." unique_id=1746153197 instance=ExtResource("4_kry3j")]
+
 [node name="Debug" type="Node2D" parent="." unique_id=1397661446]
+z_index = 1000
 position = Vector2(1675, 261)
 
 [node name="M" type="Button" parent="Debug" unique_id=1832934754]
@@ -63,6 +56,35 @@ offset_bottom = 89.0
 theme_override_font_sizes/font_size = 32
 text = "Random Sound"
 
+[node name="TestFlicker" type="AnimatedSprite2D" parent="Debug" unique_id=94824932]
+visible = false
+z_index = 1
+position = Vector2(-773, 233)
+sprite_frames = SubResource("SpriteFrames_bo1nx")
+autoplay = "default"
+frame_progress = 0.72460306
+
+[node name="Sprite2D" type="Sprite2D" parent="Debug" unique_id=1616121685]
+visible = false
+position = Vector2(-679, 306)
+scale = Vector2(16.5625, 9.859375)
+texture = ExtResource("1_jjgbg")
+
+[node name="Tp" type="Button" parent="Debug" unique_id=1616413176]
+offset_left = -635.0
+offset_top = -44.0
+offset_right = -549.0
+offset_bottom = -13.0
+text = "TELEPORT"
+
+[node name="SceneChangeTimer" type="Timer" parent="." unique_id=242995450]
+wait_time = 0.5
+one_shot = true
+
+[node name="Dialogue" parent="." unique_id=1763889580 instance=ExtResource("6_21xkr")]
+
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Debug/M" to="." method="_on_m_pressed"]
 [connection signal="pressed" from="Debug/S" to="." method="_on_s_pressed"]
+[connection signal="pressed" from="Debug/Tp" to="." method="_on_tp_pressed"]
+[connection signal="timeout" from="SceneChangeTimer" to="." method="_on_scene_change_timer_timeout"]

@@ -4,7 +4,8 @@ class_name Transition
 
 # Functions
 func _ready() -> void:
-	pass
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property($ColorRect, "modulate:a", 0, 0.1)#.set_delay(.5)
 
 
 func _on_button_pressed() -> void:
