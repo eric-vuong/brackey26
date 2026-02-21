@@ -39,21 +39,22 @@ func show_dialogue(dialogue_id: String) -> void:
 			]
 		"bonk":
 			text_queue = [
-				["player", "Ow, that hurt"],
-				["player", "Why did I think hitting that block with my head was a good idea?"]
+				["hurt", "Ow, that hurt."],
+				["frown", "Why did I think hitting that block with my head was a good idea?"]
 			]
 		"knight":
 			text_queue = [
 				["knight", "If you wish to pass, you must defeat me."],
 				["player", "Well, I don't have an attack button."],
 				["player", "Maybe you could just let me past?"],
-				["player", "Pretty please?"],
+				["smile", "Pretty please?"],
 				["knight", "..."],
 			]
 		"cactus":
 			text_queue = [
-				["player", "Woah, what a humongous..."],
-				["player", "Cactus? Cucumber?"]
+				["suprised", "Woah, what a humongous..."],
+				["frown", "Cactus? Cucumber?"],
+				["smile", "But that smile is cute. ❤️"]
 			]
 	show()
 	main.can_move = false
@@ -88,9 +89,23 @@ func show_actor(actor_id: String = ""):
 	dialogue_sound = "blip.wav"
 	match actor_id:
 		"player":
-			$Actors/Player.show()
+			$Actors/Neutral.show()
 			dialogue_sound = "blip.wav"
-		"actor1": $Actors/Player.show()
+		"neutral":
+			$Actors/Neutral.show()
+			dialogue_sound = "blip.wav"
+		"frown":
+			$Actors/Frown.show()
+			dialogue_sound = "blip.wav"
+		"hurt":
+			$Actors/Hurt.show()
+			dialogue_sound = "blip.wav"
+		"suprised":
+			$Actors/Suprised.show()
+			dialogue_sound = "blip.wav"
+		"smile":
+			$Actors/Smile.show()
+			dialogue_sound = "blip.wav"
 		"knight":
 			$Actors/Knight.show()
 			dialogue_sound = "ice.wav"

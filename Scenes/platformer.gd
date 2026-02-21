@@ -14,6 +14,7 @@ var v_spd_threshold: int = 400
 ## Gravity is set on ready
 var gravity
 @onready var main: Main = get_tree().get_nodes_in_group("Main")[0]
+@onready var sound: Sound = get_tree().get_nodes_in_group("Sound")[0]
 func _ready():
 	gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * gravity_mod
 	scale = scale * scale_mod
@@ -51,18 +52,17 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("jump"):
 			if main.can_move:
 				velocity.y = jump_speed
+				# Jump sound
+				sound.play("blip2.wav")
 	else:
 		# In the air
 		# Do fall or jump animation
 		if abs(velocity.y) < v_spd_threshold:
 			$AnimatedSprite2D.play("air")
-			#print("AIR", velocity.y)
 		elif velocity.y > 0:
 			$AnimatedSprite2D.play("fall")
-			#print("FALL", velocity.y )
 		elif velocity.y < 0:
 			$AnimatedSprite2D.play("jump")
-			#print("JUMP", velocity.y )
 	
 
 	# Get the input direction.
