@@ -56,6 +56,11 @@ func show_dialogue(dialogue_id: String) -> void:
 				["frown", "Cactus? Cucumber?"],
 				["smile", "But that smile is cute. ❤️"]
 			]
+		"sign":
+			text_queue = [
+				["frown", '"Closed during ongoing construction"'],
+				["player", "I guess I'll come back later then."]
+			]
 	show()
 	main.can_move = false
 	_play_line()
