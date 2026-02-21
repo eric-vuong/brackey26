@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cqsjgtp8cbedg" path="res://Assets/Characters/KnightDeath.png" id="9_ka70p"]
 [ext_resource type="Texture2D" uid="uid://dtlgv7yi8gkkr" path="res://Assets/Characters/KnightIdle.png" id="9_oukyj"]
 [ext_resource type="Texture2D" uid="uid://yrjruvn5th4m" path="res://Assets/Textures/Explosion.png" id="11_g2gbw"]
+[ext_resource type="Texture2D" uid="uid://cqr3cerdmofkk" path="res://Assets/Textures/sign_post.png" id="12_cs13s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1p2m"]
 size = Vector2(163, 650.5)
@@ -226,6 +227,12 @@ animations = [{
 "speed": 0.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs13s"]
+size = Vector2(127, 1029.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mubek"]
+size = Vector2(137, 158)
+
 [node name="Parallax" type="Node2D" unique_id=403349311]
 script = ExtResource("1_vieis")
 
@@ -365,6 +372,28 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_d1mdk")
 autoplay = "default"
 
+[node name="SignPost" type="Sprite2D" parent="." unique_id=1850775892]
+z_index = 10
+position = Vector2(-1519, 878)
+scale = Vector2(2, 2)
+texture = ExtResource("12_cs13s")
+
+[node name="BlockedPath" type="StaticBody2D" parent="SignPost" unique_id=1931774018]
+position = Vector2(759.5, -439)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPost/BlockedPath" unique_id=1500342204]
+position = Vector2(-1534, 520)
+shape = SubResource("RectangleShape2D_cs13s")
+
+[node name="SignTalk" type="Area2D" parent="SignPost" unique_id=2025426199]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPost/SignTalk" unique_id=179202947]
+position = Vector2(95, -3.5)
+shape = SubResource("RectangleShape2D_mubek")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="body_shape_entered" from="ToPlatformer" to="." method="_on_to_platformer_body_shape_entered"]
 [connection signal="body_shape_entered" from="ToDropper" to="." method="_on_to_dropper_body_shape_entered"]
@@ -372,3 +401,5 @@ autoplay = "default"
 [connection signal="body_shape_exited" from="Knight/Area2D" to="." method="_on_area_2d_body_shape_exited"]
 [connection signal="body_shape_entered" from="Knight/DeathZone" to="." method="_on_death_zone_body_shape_entered"]
 [connection signal="frame_changed" from="Explosion" to="." method="_on_explosion_frame_changed"]
+[connection signal="body_shape_entered" from="SignPost/SignTalk" to="." method="_on_sign_talk_body_shape_entered"]
+[connection signal="body_shape_exited" from="SignPost/SignTalk" to="." method="_on_sign_talk_body_shape_exited"]

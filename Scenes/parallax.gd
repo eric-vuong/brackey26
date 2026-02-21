@@ -9,10 +9,10 @@ func _ready() -> void:
 
 func _input(_event):
 	if Input.is_action_just_pressed("interact"):
-		if interact_target == "knight":
+		if interact_target in ["knight", "sign"]:
 			if main.can_move:
 				get_viewport().set_input_as_handled()
-				main.show_dialogue("knight")
+				main.show_dialogue(interact_target)
 				$Platformer.stop()
 		
 @warning_ignore("unused_parameter")
@@ -78,3 +78,15 @@ func _on_explosion_frame_changed() -> void:
 	if exp_frame == 11:
 		await get_tree().create_timer(0.35).timeout
 		$Explosion.queue_free()
+
+
+@warning_ignore("unused_parameter")
+func _on_sign_talk_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	pass # Replace with function body.
+	$Platformer.can_interact()
+	interact_target = "sign"
+
+
+func _on_sign_talk_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	$Platformer.can_interact(false)
+	interact_target = ""
