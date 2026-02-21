@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://cusd8i2urcowf"]
 
 [ext_resource type="Script" uid="uid://cnwqrtmsb0xdl" path="res://Scenes/dialogue.gd" id="1_dgfud"]
-[ext_resource type="Texture2D" uid="uid://bhvy8xtqmjjgf" path="res://icon.svg" id="2_p21q5"]
+[ext_resource type="Texture2D" uid="uid://cfjjxl6ksi17k" path="res://Assets/Characters/CloverNeutral.png" id="2_pjl42"]
+[ext_resource type="Texture2D" uid="uid://brpsq85iijjwd" path="res://Assets/Characters/CloverFrown.png" id="3_shd1d"]
+[ext_resource type="Texture2D" uid="uid://chssd84j8icw3" path="res://Assets/Characters/CloverHurt.png" id="4_j1ns2"]
+[ext_resource type="Texture2D" uid="uid://dv85bov18do8u" path="res://Assets/Characters/CloverSuprised.png" id="5_n2qm0"]
+[ext_resource type="Texture2D" uid="uid://b8s8xfccx23ix" path="res://Assets/Characters/CloverSmile.png" id="6_2et6r"]
+[ext_resource type="Texture2D" uid="uid://due3qufb3wuy4" path="res://Assets/Characters/knight.png" id="7_4dels"]
 
 [node name="Dialogue" type="CanvasLayer" unique_id=1763889580]
 script = ExtResource("1_dgfud")
+text_pause = 0.5
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=677622958]
 offset_left = 179.0
@@ -13,28 +19,41 @@ offset_right = 1747.0
 offset_bottom = 1033.0
 color = Color(0.19255567, 0.1925557, 0.19255567, 1)
 
-[node name="Label" type="Label" parent="." unique_id=447803222]
+[node name="Label" type="RichTextLabel" parent="." unique_id=1662410258]
 offset_left = 294.0
 offset_top = 797.0
 offset_right = 1637.0
 offset_bottom = 1016.0
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/normal_font_size = 32
 text = "The dialogue looks like this"
 
 [node name="Actors" type="Node2D" parent="." unique_id=530615938]
 z_index = -1
 
-[node name="Player" type="Sprite2D" parent="Actors" unique_id=1019264881]
-position = Vector2(347, 531)
-scale = Vector2(4.953125, 4.9921875)
-texture = ExtResource("2_p21q5")
+[node name="Neutral" type="Sprite2D" parent="Actors" unique_id=1019264881]
+position = Vector2(388, 483)
+texture = ExtResource("2_pjl42")
 
-[node name="Actor1" type="Sprite2D" parent="Actors" unique_id=772903421]
-position = Vector2(1558, 518)
-scale = Vector2(4.953125, 4.9921875)
-texture = ExtResource("2_p21q5")
+[node name="Frown" type="Sprite2D" parent="Actors" unique_id=1425329088]
+position = Vector2(388, 483)
+texture = ExtResource("3_shd1d")
+
+[node name="Hurt" type="Sprite2D" parent="Actors" unique_id=2115602652]
+position = Vector2(388, 483)
+texture = ExtResource("4_j1ns2")
+
+[node name="Suprised" type="Sprite2D" parent="Actors" unique_id=1397196985]
+position = Vector2(388, 483)
+texture = ExtResource("5_n2qm0")
+
+[node name="Smile" type="Sprite2D" parent="Actors" unique_id=730609637]
+position = Vector2(388, 483)
+texture = ExtResource("6_2et6r")
 
 [node name="Knight" type="Sprite2D" parent="Actors" unique_id=404374767]
-position = Vector2(1558, 518)
-scale = Vector2(4.953125, 4.9921875)
-texture = ExtResource("2_p21q5")
+position = Vector2(1533, 484)
+texture = ExtResource("7_4dels")
+
+[node name="Timer" type="Timer" parent="." unique_id=887052559]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

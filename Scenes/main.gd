@@ -22,11 +22,9 @@ func _ready() -> void:
 	$PauseMenu.hide()
 	# Get all levels added
 	for level in levels.keys():
-		print(level)
 		var level_path = "res://Scenes/" + level + ".tscn"
 		var new_scene = load(level_path).instantiate()
 		levels[level] = new_scene
-	#print(levels)
 	set_level("parallax")
 	
 
