@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drb6w140nevst"]
 
-[ext_resource type="Script" uid="uid://0qycuyhoki64" path="res://Scripts/character_body_2d.gd" id="1_jliok"]
+[ext_resource type="Script" uid="uid://0qycuyhoki64" path="res://Scripts/character_body_2d_left.gd" id="1_jliok"]
 [ext_resource type="Texture2D" uid="uid://di1oql7g4xheq" path="res://Assets/Sprites/modified_tilemap.png" id="2_jliok"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpeqm"]
@@ -128,3 +128,4 @@ position = Vector2(63, 460)
 scale = Vector2(8.1875, 8.1875)
 sprite_frames = SubResource("SpriteFrames_uk46c")
 animation = &"idle_down"
+autoplay = "idle_down"
