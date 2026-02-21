@@ -9,6 +9,8 @@ class_name Main
 	"parallax": null,
 	"platform_level": null,
 	"dropper": null,
+	"WeirdPark": null,
+	"WeirdDungeon": null
 }
 ## All movement functions should check this first. Prevent movement inputs (but not physics)
 var can_move: bool = true
@@ -16,6 +18,11 @@ var can_move: bool = true
 # For level changing
 var new_level: String
 var new_level_options: Dictionary
+
+# For progression
+## Key from platformer level
+var has_blue_key: bool = false
+var has_red_key: bool = false
 
 # Functions
 func _ready() -> void:
@@ -98,4 +105,5 @@ func _on_scene_change_timer_timeout() -> void:
 
 func _on_tp_pressed() -> void:
 	pass # Replace with function body.
-	change_level("platform_level",{"position": Vector2(100, 920), "direction": "right"})
+	#change_level("platform_level",{"position": Vector2(100, 920), "direction": "right"})
+	change_level("WeirdPark", {"position": Vector2(3800, 538), "direction": "left"})
