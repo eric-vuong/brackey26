@@ -124,7 +124,7 @@ func _on_scene_change_timer_timeout() -> void:
 		"platform_level": $Sound.play_music("goofy.wav", -13)
 		"dropper": $Sound.play_music("dungeon002.ogg", 15)
 		"WeirdPark": $Sound.play_music("19wind.mp3", -7) 
-		"WeirdDungeon": $Sound.play_music("8Shop.mp3", -7)
+		"WeirdDungeon": $Sound.play_music("town.wav", -5)
 		"credits_room": $Sound.play_music("16calm.mp3", -4)
 	
 	

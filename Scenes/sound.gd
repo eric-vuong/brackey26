@@ -65,6 +65,7 @@ func _ready() -> void:
 	music_list["8Shop.mp3"] = load("res://Assets/Music/8Shop.mp3") # Dungeon
 	music_list["16calm.mp3"] = load("res://Assets/Music/16calm.mp3")
 	music_list["dungeon002.ogg"] = load("res://Assets/Music/dungeon002.ogg")
+	music_list["town.wav"] = load("res://Assets/Music/town.wav")
 	
 	
 ## Play footsteps
