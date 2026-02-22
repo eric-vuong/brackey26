@@ -719,6 +719,14 @@ offset_right = -549.0
 offset_bottom = -13.0
 text = "TELEPORT"
 
+[node name="Label" type="Label" parent="Debug" unique_id=437304789]
+visible = false
+offset_left = -1079.0
+offset_top = -133.0
+offset_right = 40.0
+offset_bottom = 690.0
+text = "This is the debug display"
+
 [node name="SceneChangeTimer" type="Timer" parent="." unique_id=242995450]
 wait_time = 0.5
 one_shot = true

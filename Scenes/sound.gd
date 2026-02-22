@@ -14,27 +14,44 @@ var audio_players: Array = []
 var current_music: String = ""
 ## Used to pitch shift dialogue
 var rng := RandomNumberGenerator.new()
+@onready var main: Main = get_tree().get_nodes_in_group("Main")[0]
 func _ready() -> void:
 	# Setup sound list
-	var dir = "res://Assets/sound/"
-	var sound_directory = DirAccess.open(dir)
-	for sound_name in (sound_directory.get_files()):
-		# Need to use .import files to find the actual files
-		if sound_name.get_extension() == "import":
-			sound_name = sound_name.replace(".import", "")
-			if sound_name.get_extension() in FILE_TYPES:
-				sound_list[str(sound_name)] = load(str(dir) + str(sound_name))
+	#var dir = "res://Assets/sound/"
+	#var sound_directory = DirAccess.open(dir)
+	#for sound_name in (sound_directory.get_files()):
+		## Need to use .import files to find the actual files
+		#if sound_name.get_extension() == "import":
+			#sound_name = sound_name.replace(".import", "")
+			#if sound_name.get_extension() in FILE_TYPES:
+				#sound_list[str(sound_name)] = load(str(dir) + str(sound_name))
+				#main.write_debug(str(sound_name))
+				#main.write_debug(str(sound_list[str(sound_name)]))
+				
+				
+	# Manually setup sound list
+	#sound_list[""] = load("res://Assets/Sound/")
+	sound_list["blip2.wav"] = load("res://Assets/Sound/blip2.wav")
+	sound_list["blip.wav"] = load("res://Assets/Sound/blip.wav")
+	sound_list["gamemove.mp3"] = load("res://Assets/Sound/gameover.mp3")
+	sound_list["ice.wav"] = load("res://Assets/Sound/ice.wav")
+	
 	# Fill array with stream players
 	audio_players = $AudioPlayers.get_children()
 	
 	# Setup music
-	var m_dir = "res://Assets/music/"
-	var music_directory = DirAccess.open(m_dir)
-	for music_name in (music_directory.get_files()):
-		if music_name.get_extension() == "import":
-			music_name = music_name.replace(".import", "")
-			if music_name.get_extension() in FILE_TYPES:
-				music_list[str(music_name)] = load(str(m_dir) + str(music_name))
+	#var m_dir = "res://Assets/music/"
+	#var music_directory = DirAccess.open(m_dir)
+	#for music_name in (music_directory.get_files()):
+		#if music_name.get_extension() == "import":
+			#music_name = music_name.replace(".import", "")
+			#if music_name.get_extension() in FILE_TYPES:
+				#music_list[str(music_name)] = load(str(m_dir) + str(music_name))
+		
+		
+	# Setup music manually
+	music_list["battleupdated.ogg"] = load("res://Assets/Music/battleupdated.ogg")
+	music_list["testbattle.wav"] = load("res://Assets/Music/testbattle.wav")
 
 ## Start playing dialogue blip
 func play_dialogue(sound: String):

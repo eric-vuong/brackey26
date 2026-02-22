@@ -42,7 +42,11 @@ func _input(_event):
 	if Input.is_action_just_pressed("pause"):
 		get_viewport().set_input_as_handled()
 		_on_pause_button_pressed()
-		
+
+## Add text to game screen
+func write_debug(text: String):
+	$Debug/Label.text += text + "\n"
+
 ## Update keys
 func got_key():
 	if has_blue_key:
