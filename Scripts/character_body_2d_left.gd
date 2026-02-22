@@ -12,8 +12,14 @@ func _physics_process(delta: float) -> void:
 		process_movement()
 		process_animation()
 		move_and_slide()
+	#process_movement()
+	#process_animation()
+	#move_and_slide()
+
 
 func process_movement() -> void:
+	#if main.can_move == false:
+		#return
 	var direction := Input.get_vector("left", "right", "up", "down")
 	
 	if direction != Vector2.ZERO:

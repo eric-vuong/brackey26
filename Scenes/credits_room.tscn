@@ -1108,6 +1108,7 @@ position = Vector2(962, 717.5)
 shape = SubResource("RectangleShape2D_cnms0")
 
 [node name="Credits" type="RichTextLabel" parent="." unique_id=171944819]
+visible = false
 offset_left = 480.0
 offset_top = 173.0
 offset_right = 1532.0

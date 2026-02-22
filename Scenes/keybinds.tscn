@@ -8,7 +8,7 @@ custom_minimum_size = Vector2(355, 290)
 offset_right = 151.0
 offset_bottom = 73.0
 mouse_filter = 2
-color = Color(0.34781694, 0.34781697, 0.3478169, 1)
+color = Color(1, 1, 1, 0)
 script = ExtResource("1_2revg")
 
 [node name="Controls" type="Label" parent="." unique_id=620659929]

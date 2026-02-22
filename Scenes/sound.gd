@@ -35,6 +35,12 @@ func _ready() -> void:
 	sound_list["blip.wav"] = load("res://Assets/Sound/blip.wav")
 	sound_list["gamemove.mp3"] = load("res://Assets/Sound/gameover.mp3")
 	sound_list["ice.wav"] = load("res://Assets/Sound/ice.wav")
+	sound_list["explode.wav"] = load("res://Assets/Sound/explode.wav")
+	sound_list["knight.wav"] = load("res://Assets/Sound/knight.wav")
+	sound_list["bonk.ogg"] = load("res://Assets/Sound/bonk.ogg")
+	sound_list["grass.wav"] = load("res://Assets/Sound/grass.wav")
+	sound_list["rock.ogg"] = load("res://Assets/Sound/rock.ogg")
+	sound_list["dive.wav"] = load("res://Assets/Sound/dive.wav")
 	
 	# Fill array with stream players
 	audio_players = $AudioPlayers.get_children()
@@ -52,6 +58,21 @@ func _ready() -> void:
 	# Setup music manually
 	music_list["battleupdated.ogg"] = load("res://Assets/Music/battleupdated.ogg")
 	music_list["testbattle.wav"] = load("res://Assets/Music/testbattle.wav")
+	music_list["goofy.wav"] = load("res://Assets/Music/goofy.wav") # Platformer
+	music_list["22ff.mp3"] = load("res://Assets/Music/22ff.mp3") # Forest
+	music_list["19wind.mp3"] = load("res://Assets/Music/19wind.mp3") # Park
+	music_list["8Shop.mp3"] = load("res://Assets/Music/8Shop.mp3") # Dungeon
+	music_list["16calm.mp3"] = load("res://Assets/Music/16calm.mp3")
+	
+	
+## Play footsteps
+func play_step(sound: String):
+	if $StepPlayer.playing == true:
+		# Already actively playing this sound
+		return
+	$StepPlayer.pitch_scale = rng.randf_range(0.95, 1.08)
+	$StepPlayer.stream = sound_list[sound]
+	$StepPlayer.play()
 
 ## Start playing dialogue blip
 func play_dialogue(sound: String):
@@ -71,6 +92,7 @@ func play_dialogue(sound: String):
 
 ## Play music track. Only 1 song at a time, that loops.
 func play_music(music: String = "", decibels: float = 0.0) -> void:
+	print("Playing music: ", music)
 	if music == "":
 		current_music = ""
 		$MusicPlayer.stream = null
@@ -147,3 +169,8 @@ func _play_sound(sound: String, audio_player: AudioStreamPlayer, decibels: float
 	audio_player.volume_db = decibels
 	audio_player.bus = bus
 	audio_player.play()
+
+
+func _on_music_player_finished() -> void:
+	pass # Replace with function body.
+	$MusicPlayer.play()

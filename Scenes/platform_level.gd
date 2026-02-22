@@ -1,7 +1,7 @@
 extends Node2D
-
+var step_area: String = ""
 @onready var main: Main = get_tree().get_nodes_in_group("Main")[0]
-
+@onready var sound: Sound = get_tree().get_nodes_in_group("Sound")[0]
 ## Used with interact key to talk to something
 var interact_target: String = ""
 func _input(_event):
@@ -22,6 +22,7 @@ func set_player_direction(direction: String):
 
 @warning_ignore("unused_parameter")
 func _on_box_trigger_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	sound.play("bonk.ogg")
 	await get_tree().create_timer(0.3).timeout
 	main.show_dialogue("bonk")
 	$Platformer.stop()

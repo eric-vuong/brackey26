@@ -46,6 +46,11 @@ func _physics_process(delta):
 		# Walking animation if on floor and moving
 		if velocity.x != 0:
 			$AnimatedSprite2D.play("walk")
+			# Play sound dependent on area
+			if owner.step_area == "grass":
+				sound.play_step("grass.wav")
+			elif owner.step_area == "rock":
+				sound.play_step("rock.ogg")
 		else:
 			$AnimatedSprite2D.play("idle")
 		# Jump

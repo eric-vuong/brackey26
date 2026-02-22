@@ -7,12 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://dv85bov18do8u" path="res://Assets/Characters/CloverSuprised.png" id="5_n2qm0"]
 [ext_resource type="Texture2D" uid="uid://b8s8xfccx23ix" path="res://Assets/Characters/CloverSmile.png" id="6_2et6r"]
 [ext_resource type="Texture2D" uid="uid://due3qufb3wuy4" path="res://Assets/Characters/knight.png" id="7_4dels"]
+[ext_resource type="Texture2D" uid="uid://dglphapoeemee" path="res://Assets/Textures/buttonLong_brown_pressed.png" id="8_j1ns2"]
+[ext_resource type="Texture2D" uid="uid://cnijguhjanhfn" path="res://Assets/Textures/frame_lower.png" id="9_2et6r"]
+[ext_resource type="Texture2D" uid="uid://bsnwlgrvcesmm" path="res://Assets/Textures/frame_upper.png" id="10_4dels"]
 
 [node name="Dialogue" type="CanvasLayer" unique_id=1763889580]
 script = ExtResource("1_dgfud")
 text_pause = 0.5
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=677622958]
+visible = false
 offset_left = 179.0
 offset_top = 776.0
 offset_right = 1747.0
@@ -20,40 +24,66 @@ offset_bottom = 1033.0
 color = Color(0.19255567, 0.1925557, 0.19255567, 1)
 
 [node name="Label" type="RichTextLabel" parent="." unique_id=1662410258]
-offset_left = 294.0
-offset_top = 797.0
-offset_right = 1637.0
-offset_bottom = 1016.0
-theme_override_font_sizes/normal_font_size = 32
-text = "The dialogue looks like this"
+z_index = 4
+offset_left = 439.0
+offset_top = 852.0
+offset_right = 1494.0
+offset_bottom = 974.0
+theme_override_font_sizes/normal_font_size = 40
+text = "The dialogue looks like this. If you wre to say too much it would lopp around loke this."
+
+[node name="ButtonLongBrownPressed" type="Sprite2D" parent="." unique_id=1152654886]
+z_index = 3
+position = Vector2(960, 916)
+scale = Vector2(6, 4)
+texture = ExtResource("8_j1ns2")
 
 [node name="Actors" type="Node2D" parent="." unique_id=530615938]
 z_index = -1
-
-[node name="Neutral" type="Sprite2D" parent="Actors" unique_id=1019264881]
-position = Vector2(388, 483)
-texture = ExtResource("2_pjl42")
+position = Vector2(25, 24)
 
 [node name="Frown" type="Sprite2D" parent="Actors" unique_id=1425329088]
-position = Vector2(388, 483)
+position = Vector2(376, 490)
 texture = ExtResource("3_shd1d")
 
+[node name="Neutral" type="Sprite2D" parent="Actors" unique_id=82036942]
+position = Vector2(376, 490)
+texture = ExtResource("2_pjl42")
+
 [node name="Hurt" type="Sprite2D" parent="Actors" unique_id=2115602652]
-position = Vector2(388, 483)
+position = Vector2(376, 490)
 texture = ExtResource("4_j1ns2")
 
 [node name="Suprised" type="Sprite2D" parent="Actors" unique_id=1397196985]
-position = Vector2(388, 483)
+position = Vector2(376, 490)
 texture = ExtResource("5_n2qm0")
 
 [node name="Smile" type="Sprite2D" parent="Actors" unique_id=730609637]
-position = Vector2(388, 483)
+position = Vector2(376, 490)
 texture = ExtResource("6_2et6r")
 
 [node name="Knight" type="Sprite2D" parent="Actors" unique_id=404374767]
-position = Vector2(1533, 484)
+position = Vector2(1508, 508)
 texture = ExtResource("7_4dels")
 
+[node name="FrameLower2" type="Sprite2D" parent="Actors/Knight" unique_id=132293534]
+position = Vector2(-11, 56)
+scale = Vector2(12, 12)
+texture = ExtResource("9_2et6r")
+
+[node name="FrameUpper2" type="Sprite2D" parent="Actors/Knight/FrameLower2" unique_id=2055635598]
+z_index = -2
+texture = ExtResource("10_4dels")
+
 [node name="Timer" type="Timer" parent="." unique_id=887052559]
+
+[node name="FrameLower" type="Sprite2D" parent="." unique_id=470642540]
+position = Vector2(394, 588)
+scale = Vector2(12, 12)
+texture = ExtResource("9_2et6r")
+
+[node name="FrameUpper" type="Sprite2D" parent="FrameLower" unique_id=896165507]
+z_index = -2
+texture = ExtResource("10_4dels")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2gypp868qjfe" path="res://Scenes/pause_menu.gd" id="1_emv3i"]
 [ext_resource type="PackedScene" uid="uid://cphnxnjbfu6k1" path="res://Scenes/keybinds.tscn" id="2_k0w1u"]
+[ext_resource type="Texture2D" uid="uid://yq7g3wkmki5a" path="res://Assets/Textures/panel_brown.png" id="3_1och7"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1685315995]
 process_mode = 2
@@ -93,6 +94,12 @@ offset_right = 155.0
 offset_bottom = 289.0
 mouse_filter = 2
 color = Color(0.2285108, 0.2285108, 0.2285108, 1)
+
+[node name="PanelBrown" type="Sprite2D" parent="Control" unique_id=1230306546]
+z_index = -1
+position = Vector2(20, 20)
+scale = Vector2(4, 6.5)
+texture = ExtResource("3_1och7")
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]

@@ -14826,6 +14826,7 @@ tile_set = SubResource("TileSet_r70er")
 
 [node name="Cactus" type="TileMapLayer" parent="." unique_id=1512132759]
 z_index = -2
+position = Vector2(0, 29)
 tile_map_data = PackedByteArray("AABzADcAAAAKAAMAAABzAC8AAAAKAAMAAABzACcAAAAKAAMAAABzAB8AAAAKAAMAAABzABcAAAAKAAMAAABzAA8AAAAKAAMAAABzAAcAAAAMAAMAAAA=")
 tile_set = SubResource("TileSet_r70er")
 
@@ -14844,7 +14845,8 @@ tile_set = SubResource("TileSet_g5eg6")
 [node name="Platformer" parent="." unique_id=646728528 instance=ExtResource("2_fuiq5")]
 position = Vector2(162, 713)
 speed = 600.0
-jump_speed = -1400.0
+jump_speed = -1600.0
+gravity_mod = 4.5
 scale_mod = 5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1731121821]

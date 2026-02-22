@@ -3,7 +3,9 @@ var speed = 1000
 var cam: Camera2D
 ## Used with interact key to talk to something
 var interact_target: String = ""
+var step_area: String = ""
 @onready var main: Main = get_tree().get_nodes_in_group("Main")[0]
+@onready var sound: Sound = get_tree().get_nodes_in_group("Sound")[0]
 func _ready() -> void:
 	cam = $Camera2D
 
@@ -70,6 +72,7 @@ func _on_death_zone_body_shape_entered(body_rid: RID, body: Node2D, body_shape_i
 	$Platformer.stop()
 	await get_tree().create_timer(2.25).timeout
 	$Explosion.play("Explode")
+	sound.play("explode.wav")
 	await get_tree().create_timer(1.25).timeout
 	main.can_move = true
 	$Knight.queue_free()
@@ -103,3 +106,13 @@ func _on_sign_talk_body_shape_exited(body_rid: RID, body: Node2D, body_shape_ind
 func _on_to_park_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	pass # Replace with function body.
 	main.change_level("WeirdPark", {"position": Vector2(1810, 659), "direction": "left"})
+
+
+func _on_grass_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	pass # Replace with function body.
+	step_area = "grass"
+
+
+func _on_rock_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	pass # Replace with function body.
+	step_area = "rock"

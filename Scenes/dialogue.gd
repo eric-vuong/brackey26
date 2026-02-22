@@ -54,7 +54,7 @@ func show_dialogue(dialogue_id: String) -> void:
 			text_queue = [
 				["suprised", "Woah, what a humongous..."],
 				["frown", "Cactus? Cucumber?"],
-				["smile", "But that smile is cute. ❤️"]
+				["smile", "But that smile is cute."]
 			]
 		"sign":
 			text_queue = [
@@ -137,7 +137,10 @@ func show_actor(actor_id: String = ""):
 			dialogue_sound = "blip.wav"
 		"knight":
 			$Actors/Knight.show()
-			dialogue_sound = "ice.wav"
+			dialogue_sound = "knight.wav"
+			$FrameLower.hide()
+	if actor_id != "knight":
+		$FrameLower.show()
 
 func close_dialogue():
 	hide()

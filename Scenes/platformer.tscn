@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://da03vcv4hxpc3" path="res://Scenes/platformer.gd" id="1_k0oe1"]
 [ext_resource type="Texture2D" uid="uid://bvslpsklu1vl5" path="res://Assets/Characters/ElfWalk001-Sheet-export.png" id="3_6hv7n"]
 [ext_resource type="Texture2D" uid="uid://da8ohoydsyquw" path="res://Assets/Characters/ElfIdle001Sheet-export.png" id="3_h786q"]
+[ext_resource type="Texture2D" uid="uid://dm67ab84eunlj" path="res://Assets/Sprites/exclaim.png" id="4_h786q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0oe1"]
 radius = 7.0
@@ -156,8 +157,8 @@ animations = [{
 }]
 
 [node name="Platformer" type="CharacterBody2D" unique_id=646728528]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("1_k0oe1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1020085011]
@@ -169,11 +170,16 @@ sprite_frames = SubResource("SpriteFrames_xuiey")
 animation = &"jump"
 autoplay = "idle"
 
-[node name="CanInteract" type="RichTextLabel" parent="." unique_id=297417930]
+[node name="CanInteractold" type="RichTextLabel" parent="." unique_id=297417930]
+visible = false
 offset_left = -2.0
 offset_top = -46.0
-offset_right = 38.0
+offset_right = 25.0
 offset_bottom = -6.0
 bbcode_enabled = true
 text = "[color=red]![/color]
 "
+
+[node name="CanInteract" type="Sprite2D" parent="." unique_id=1794533737]
+position = Vector2(0, -39)
+texture = ExtResource("4_h786q")

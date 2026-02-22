@@ -11,6 +11,9 @@ bus = &"Music"
 [node name="DialoguePlayer" type="AudioStreamPlayer" parent="." unique_id=194807029]
 bus = &"Effect"
 
+[node name="StepPlayer" type="AudioStreamPlayer" parent="." unique_id=233439013]
+bus = &"Effect"
+
 [node name="AudioPlayers" type="Node2D" parent="." unique_id=565516223]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=48036347]
@@ -27,3 +30,5 @@ max_polyphony = 10
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=1543808249]
 max_polyphony = 10
+
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]

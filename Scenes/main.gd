@@ -36,6 +36,7 @@ func _ready() -> void:
 		var new_scene = load(level_path).instantiate()
 		levels[level] = new_scene
 	set_level("parallax")
+	$Sound.play_music("22ff.mp3", -6)
 	
 
 func _input(_event):
@@ -117,16 +118,25 @@ func _on_scene_change_timer_timeout() -> void:
 	can_move = true
 	is_changing_level = false
 	
+	# set music
+	match new_level:
+		"parallax": $Sound.play_music("22ff.mp3", -6)
+		"platform_level": $Sound.play_music("goofy.wav", -13)
+		"dropper": $Sound.play_music("")
+		"WeirdPark": $Sound.play_music("19wind.mp3", -7) 
+		"WeirdDungeon": $Sound.play_music("8Shop.mp3", -7)
+		"credits_room": $Sound.play_music("16calm.mp3", -4)
+	
 	
 
 
 func _on_tp_pressed() -> void:
 	pass # Replace with function body.
-	#change_level("platform_level",{"position": Vector2(100, 920), "direction": "right"})
+	change_level("platform_level",{"position": Vector2(100, 920), "direction": "right"})
 	#change_level("WeirdDungeon", {"position": Vector2(74, 759), "direction": "right"})
 	#change_level("WeirdPark", {"position": Vector2(920, 500), "direction": "left"})
 	#change_level("dropper", {"position": Vector2(633, 393), "direction": "right"})
 	has_blue_key = true
 	has_red_key = true
 	got_key()
-	change_level("credits_room", {"position": Vector2(920, 380), "direction": "up"})
+	#change_level("credits_room", {"position": Vector2(920, 380), "direction": "up"})

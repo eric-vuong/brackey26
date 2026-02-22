@@ -236,6 +236,12 @@ size = Vector2(137, 158)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unj1i"]
 size = Vector2(178, 976.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84lfg"]
+size = Vector2(3429, 649.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g28kc"]
+size = Vector2(2926, 1007)
+
 [node name="Parallax" type="Node2D" unique_id=403349311]
 script = ExtResource("1_vieis")
 
@@ -303,15 +309,16 @@ one_way_collision = true
 
 [node name="Platformer" parent="." unique_id=646728528 instance=ExtResource("8_v1p2m")]
 z_index = 11
-position = Vector2(953, 748)
-speed = 600.0
-jump_speed = -1600.0
-gravity_mod = 6.0
+position = Vector2(-399, 862)
+speed = 650.0
+jump_speed = -2000.0
+gravity_mod = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1643128061]
 offset = Vector2(0, 540)
 
 [node name="Button" type="Button" parent="." unique_id=702024003]
+visible = false
 offset_left = 928.0
 offset_top = 472.0
 offset_right = 1036.0
@@ -405,6 +412,22 @@ collision_mask = 4
 position = Vector2(-2132, 519)
 shape = SubResource("RectangleShape2D_unj1i")
 
+[node name="Grass" type="Area2D" parent="." unique_id=1109762834]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass" unique_id=1124240501]
+position = Vector2(-671.5, 932.25)
+shape = SubResource("RectangleShape2D_84lfg")
+
+[node name="Rock" type="Area2D" parent="." unique_id=1206429775]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rock" unique_id=1318338130]
+position = Vector2(2642, 829.5)
+shape = SubResource("RectangleShape2D_g28kc")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="body_shape_entered" from="ToPlatformer" to="." method="_on_to_platformer_body_shape_entered"]
 [connection signal="body_shape_entered" from="ToDropper" to="." method="_on_to_dropper_body_shape_entered"]
@@ -415,3 +438,5 @@ shape = SubResource("RectangleShape2D_unj1i")
 [connection signal="body_shape_entered" from="SignPost/SignTalk" to="." method="_on_sign_talk_body_shape_entered"]
 [connection signal="body_shape_exited" from="SignPost/SignTalk" to="." method="_on_sign_talk_body_shape_exited"]
 [connection signal="body_shape_entered" from="ToPark" to="." method="_on_to_park_body_shape_entered"]
+[connection signal="body_shape_entered" from="Grass" to="." method="_on_grass_body_shape_entered"]
+[connection signal="body_shape_entered" from="Rock" to="." method="_on_rock_body_shape_entered"]

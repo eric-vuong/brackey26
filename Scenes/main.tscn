@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b8m80utte5tdd" path="res://Scenes/transition.tscn" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://cusd8i2urcowf" path="res://Scenes/dialogue.tscn" id="6_21xkr"]
 [ext_resource type="Texture2D" uid="uid://dprafd8t312jf" path="res://Assets/Textures/KenneyPlatformer/spritesheet-tiles-double.png" id="7_6bp64"]
+[ext_resource type="Texture2D" uid="uid://ml0f45pe3qow" path="res://Assets/Textures/keypanel.png" id="8_344ge"]
+[ext_resource type="Texture2D" uid="uid://d3p1jd8rcu0gi" path="res://Assets/Textures/buttonSquare_brown.png" id="9_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://dcikievbjcjxi" path="res://Assets/Textures/barBlue_verticalMid.png" id="10_hptm8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bo1nx"]
 animations = [{
@@ -672,6 +675,8 @@ texture_region_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hptm8")
 
+[sub_resource type="Theme" id="Theme_6bp64"]
+
 [node name="Main" type="Node2D" unique_id=1827338630 groups=["Main"]]
 script = ExtResource("1_8gbba")
 
@@ -680,10 +685,11 @@ script = ExtResource("1_8gbba")
 [node name="Sound" parent="." unique_id=685124963 instance=ExtResource("4_jjvhh")]
 
 [node name="Transition" parent="." unique_id=1746153197 instance=ExtResource("4_kry3j")]
+visible = false
 
 [node name="Debug" type="Node2D" parent="." unique_id=1397661446]
-z_index = 1000
-position = Vector2(1675, 261)
+z_index = 2000
+position = Vector2(1117, 113)
 
 [node name="M" type="Button" parent="Debug" unique_id=1832934754]
 offset_right = 8.0
@@ -703,7 +709,6 @@ visible = false
 z_index = 1
 position = Vector2(-773, 233)
 sprite_frames = SubResource("SpriteFrames_bo1nx")
-autoplay = "default"
 frame_progress = 0.72460306
 
 [node name="Sprite2D" type="Sprite2D" parent="Debug" unique_id=1616121685]
@@ -737,32 +742,41 @@ one_shot = true
 
 [node name="RedKey" type="TileMapLayer" parent="UI" unique_id=1188983629]
 visible = false
-position = Vector2(244, 93)
+position = Vector2(228, 132)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 9, 0, 5, 0, 0, 0)
 tile_set = SubResource("TileSet_ynf5e")
 
 [node name="BlueKey" type="TileMapLayer" parent="UI" unique_id=843168241]
 visible = false
-position = Vector2(116, 77)
+position = Vector2(124, 116)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 5, 0, 0, 0)
 tile_set = SubResource("TileSet_d1ilt")
 
-[node name="ColorRect" type="ColorRect" parent="UI" unique_id=1639461458]
+[node name="Keypanel" type="Sprite2D" parent="UI" unique_id=448452381]
 z_index = -1
-offset_left = 46.0
-offset_top = 29.0
-offset_right = 327.0
-offset_bottom = 150.0
-color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+position = Vector2(183, 123.00001)
+scale = Vector2(3, 3)
+texture = ExtResource("8_344ge")
 
-[node name="PauseButton" type="Button" parent="UI" unique_id=424470996]
+[node name="PauseButton" type="TextureButton" parent="UI" unique_id=1677545468]
 process_mode = 3
-offset_left = 1670.0
-offset_top = 50.0
-offset_right = 1870.0
-offset_bottom = 103.0
-theme_override_font_sizes/font_size = 32
-text = "Pause Game"
+offset_left = 1768.0
+offset_top = 55.0
+offset_right = 1813.0
+offset_bottom = 106.0
+scale = Vector2(2, 2)
+theme = SubResource("Theme_6bp64")
+texture_normal = ExtResource("9_ynf5e")
+
+[node name="BarBlueVerticalMid" type="Sprite2D" parent="UI" unique_id=1124197194]
+position = Vector2(1797, 99)
+scale = Vector2(1, 3)
+texture = ExtResource("10_hptm8")
+
+[node name="BarBlueVerticalMid2" type="Sprite2D" parent="UI" unique_id=1326806205]
+position = Vector2(1829, 99)
+scale = Vector2(1, 3)
+texture = ExtResource("10_hptm8")
 
 [connection signal="pressed" from="Debug/M" to="." method="_on_m_pressed"]
 [connection signal="pressed" from="Debug/S" to="." method="_on_s_pressed"]
