@@ -18,6 +18,8 @@ var can_move: bool = true
 # For level changing
 var new_level: String
 var new_level_options: Dictionary
+## Used to control top down levels
+var is_changing_level: bool = false
 
 # For progression
 ## Key from platformer level
@@ -44,6 +46,7 @@ func change_level(level: String, options: Dictionary = {}):
 	print("Change level")
 	# First fade out level and lock controls
 	can_move = false
+	is_changing_level = true
 	$Transition.to_black()
 	new_level = level
 	new_level_options = options
@@ -99,6 +102,7 @@ func _on_scene_change_timer_timeout() -> void:
 		scene.set_player_direction(new_level_options["direction"])
 	$Transition.to_clear()
 	can_move = true
+	is_changing_level = false
 	
 	
 
@@ -106,4 +110,6 @@ func _on_scene_change_timer_timeout() -> void:
 func _on_tp_pressed() -> void:
 	pass # Replace with function body.
 	#change_level("platform_level",{"position": Vector2(100, 920), "direction": "right"})
-	change_level("WeirdPark", {"position": Vector2(3800, 538), "direction": "left"})
+	#change_level("WeirdDungeon", {"position": Vector2(74, 759), "direction": "right"})
+	#change_level("WeirdPark", {"position": Vector2(920, 500), "direction": "left"})
+	change_level("dropper", {"position": Vector2(633, 393), "direction": "right"})

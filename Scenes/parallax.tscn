@@ -233,6 +233,9 @@ size = Vector2(127, 1029.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mubek"]
 size = Vector2(137, 158)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unj1i"]
+size = Vector2(178, 976.5)
+
 [node name="Parallax" type="Node2D" unique_id=403349311]
 script = ExtResource("1_vieis")
 
@@ -394,6 +397,14 @@ collision_mask = 2
 position = Vector2(95, -3.5)
 shape = SubResource("RectangleShape2D_mubek")
 
+[node name="ToPark" type="Area2D" parent="." unique_id=1026398449]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToPark" unique_id=2042218580]
+position = Vector2(-2132, 519)
+shape = SubResource("RectangleShape2D_unj1i")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="body_shape_entered" from="ToPlatformer" to="." method="_on_to_platformer_body_shape_entered"]
 [connection signal="body_shape_entered" from="ToDropper" to="." method="_on_to_dropper_body_shape_entered"]
@@ -403,3 +414,4 @@ shape = SubResource("RectangleShape2D_mubek")
 [connection signal="frame_changed" from="Explosion" to="." method="_on_explosion_frame_changed"]
 [connection signal="body_shape_entered" from="SignPost/SignTalk" to="." method="_on_sign_talk_body_shape_entered"]
 [connection signal="body_shape_exited" from="SignPost/SignTalk" to="." method="_on_sign_talk_body_shape_exited"]
+[connection signal="body_shape_entered" from="ToPark" to="." method="_on_to_park_body_shape_entered"]

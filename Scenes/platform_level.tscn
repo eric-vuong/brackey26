@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://07lcw82dnwkj" path="res://Scenes/platformer.tscn" id="2_fuiq5"]
 [ext_resource type="Texture2D" uid="uid://bh5y5xikwgeme" path="res://Assets/Textures/KenneyPlatformer/spritesheet-backgrounds-double.png" id="3_7orm8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuiq5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kr3da"]
 texture = ExtResource("1_rlo0o")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(128, 128)
@@ -328,7 +328,7 @@ texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSet" id="TileSet_r70er"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_fuiq5")
+sources/0 = SubResource("TileSetAtlasSource_kr3da")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kr3da"]
 radius = 62.0

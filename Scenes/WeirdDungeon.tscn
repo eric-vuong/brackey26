@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dgvwa0g7ljph2"]
 
 [ext_resource type="Texture2D" uid="uid://cxxchkrbatr17" path="res://Assets/Sprites/Urban_tilemap_packed.png" id="1_5jmv5"]
+[ext_resource type="Script" uid="uid://3olp7se3ji87" path="res://Scenes/weird_dungeon.gd" id="1_yso33"]
 [ext_resource type="Texture2D" uid="uid://b7xwi7d4twpl3" path="res://Assets/Sprites/Dungeon_tilemap_packed.png" id="2_g5kqe"]
 [ext_resource type="PackedScene" uid="uid://drb6w140nevst" path="res://Scenes/topDownMovement.tscn" id="3_yso33"]
 [ext_resource type="Script" uid="uid://dpddl6y6fg1oi" path="res://Scripts/character_body_2d_right.gd" id="4_g5kqe"]
@@ -998,7 +999,14 @@ sources/1 = SubResource("TileSetAtlasSource_ifc5p")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwydd"]
 size = Vector2(61.71641, 100.52234)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yso33"]
+size = Vector2(100, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js0ux"]
+size = Vector2(45, 103)
+
 [node name="TopDownLevel2" type="Node2D" unique_id=383285260]
+script = ExtResource("1_yso33")
 
 [node name="Border&Background" type="TileMapLayer" parent="." unique_id=1437466144]
 position = Vector2(-2.861023e-06, 0)
@@ -1031,8 +1039,10 @@ tile_map_data = PackedByteArray("AAA3ABYAAQALAAgAAAAzABYAAQAGAAgAAAA5ABQAAQAKAAk
 tile_set = SubResource("TileSet_ymcvr")
 
 [node name="TopDownPlayer" parent="." unique_id=1890390610 instance=ExtResource("3_yso33")]
-position = Vector2(12, 759)
+position = Vector2(74, 759.00006)
 scale = Vector2(0.555, 0.555)
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("4_g5kqe")
 
 [node name="Camera2D" type="Camera2D" parent="TopDownPlayer" unique_id=1148845298]
@@ -1051,3 +1061,22 @@ shape = SubResource("RectangleShape2D_cwydd")
 position = Vector2(-2.861023e-06, 0)
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_ymcvr")
+
+[node name="ToDropper" type="Area2D" parent="." unique_id=1570907089]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToDropper" unique_id=81666659]
+position = Vector2(1088, 72)
+shape = SubResource("RectangleShape2D_yso33")
+
+[node name="ToParallax" type="Area2D" parent="." unique_id=262661026]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToParallax" unique_id=704185989]
+position = Vector2(11, 1023)
+shape = SubResource("RectangleShape2D_js0ux")
+
+[connection signal="body_shape_entered" from="ToDropper" to="." method="_on_to_dropper_body_shape_entered"]
+[connection signal="body_shape_entered" from="ToParallax" to="." method="_on_to_parallax_body_shape_entered"]
