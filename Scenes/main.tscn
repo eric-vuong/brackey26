@@ -688,6 +688,7 @@ script = ExtResource("1_8gbba")
 visible = false
 
 [node name="Debug" type="Node2D" parent="." unique_id=1397661446]
+visible = false
 z_index = 2000
 position = Vector2(1117, 113)
 

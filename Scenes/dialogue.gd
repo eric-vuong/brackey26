@@ -84,6 +84,29 @@ func show_dialogue(dialogue_id: String) -> void:
 				["frown", "That's the whole game!?"],
 				["hurt", "I want a refund!"]
 			]
+		"spider":
+			text_queue = [
+				["hurt", "Eeek! I hate spiders."]
+			]
+		"statues":
+			text_queue = [
+				["player", "These are all just mannequins and props."],
+				["player", "The door here is actually just painted on."],
+				["player", "But I see an open doorway up over there..."]
+			]
+		"water":
+			text_queue = [
+				["hurt", "Yuck! This water fountain tastes vile."]
+			]
+		"chest":
+			text_queue = [
+				["frown", "Why do all these chests need to be locked?"]
+			]
+		"drop":
+			text_queue = [
+				["frown", "It doesn't look like theres a way back up..."],
+				["smile", "Good thing fall damage isn't enabled."]
+			]
 			
 	show()
 	main.can_move = false

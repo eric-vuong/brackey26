@@ -42,6 +42,7 @@ func _ready() -> void:
 	sound_list["rock.ogg"] = load("res://Assets/Sound/rock.ogg")
 	sound_list["dive.wav"] = load("res://Assets/Sound/dive.wav")
 	
+	
 	# Fill array with stream players
 	audio_players = $AudioPlayers.get_children()
 	
@@ -63,6 +64,7 @@ func _ready() -> void:
 	music_list["19wind.mp3"] = load("res://Assets/Music/19wind.mp3") # Park
 	music_list["8Shop.mp3"] = load("res://Assets/Music/8Shop.mp3") # Dungeon
 	music_list["16calm.mp3"] = load("res://Assets/Music/16calm.mp3")
+	music_list["dungeon002.ogg"] = load("res://Assets/Music/dungeon002.ogg")
 	
 	
 ## Play footsteps
@@ -110,6 +112,10 @@ func play_music(music: String = "", decibels: float = 0.0) -> void:
 		return
 	print("WARNING: Failed to find music: ", music)
 
+func pause_music():
+	$MusicPlayer.stream_paused = true
+func resume_music():
+	$MusicPlayer.stream_paused = false
 
 func play(sound: String, decibels: float = 0.0, bus: String = "Effect") -> void:
 	# Check sound exists

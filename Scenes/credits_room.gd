@@ -24,6 +24,7 @@ func set_player_direction(dir: String):
 @warning_ignore("unused_parameter")
 func _on_to_park_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	pass # Replace with function body.
+	
 	main.change_level("WeirdPark", {"position": Vector2(920, 620), "direction": "up"})
 	await get_tree().create_timer(0.4).timeout
 	set_player_position(Vector2(920, 380))

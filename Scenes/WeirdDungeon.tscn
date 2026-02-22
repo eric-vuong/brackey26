@@ -1004,6 +1004,18 @@ size = Vector2(100, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js0ux"]
 size = Vector2(45, 103)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5kqe"]
+size = Vector2(137, 126.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifc5p"]
+size = Vector2(401.5, 304)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymcvr"]
+size = Vector2(222, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsfvy"]
+size = Vector2(174, 127)
+
 [node name="TopDownLevel2" type="Node2D" unique_id=383285260]
 script = ExtResource("1_yso33")
 
@@ -1076,5 +1088,45 @@ collision_mask = 4
 position = Vector2(11, 1023)
 shape = SubResource("RectangleShape2D_js0ux")
 
+[node name="Spider" type="Area2D" parent="." unique_id=1464294523]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider" unique_id=2103153139]
+position = Vector2(239, 546)
+shape = SubResource("RectangleShape2D_g5kqe")
+
+[node name="Statues" type="Area2D" parent="." unique_id=1785332149]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statues" unique_id=516809870]
+position = Vector2(1642.75, 622)
+shape = SubResource("RectangleShape2D_ifc5p")
+
+[node name="Water" type="Area2D" parent="." unique_id=2074904606]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water" unique_id=260416838]
+position = Vector2(859, 100)
+shape = SubResource("RectangleShape2D_ymcvr")
+
+[node name="Chest" type="Area2D" parent="." unique_id=1617652545]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest" unique_id=315455092]
+position = Vector2(125, 115)
+shape = SubResource("RectangleShape2D_qsfvy")
+
 [connection signal="body_shape_entered" from="ToDropper" to="." method="_on_to_dropper_body_shape_entered"]
 [connection signal="body_shape_entered" from="ToParallax" to="." method="_on_to_parallax_body_shape_entered"]
+[connection signal="body_shape_entered" from="Spider" to="." method="_on_spider_body_shape_entered"]
+[connection signal="body_shape_exited" from="Spider" to="." method="_on_spider_body_shape_exited"]
+[connection signal="body_shape_entered" from="Statues" to="." method="_on_statues_body_shape_entered"]
+[connection signal="body_shape_exited" from="Statues" to="." method="_on_statues_body_shape_exited"]
+[connection signal="body_shape_entered" from="Water" to="." method="_on_water_body_shape_entered"]
+[connection signal="body_shape_exited" from="Water" to="." method="_on_water_body_shape_exited"]
+[connection signal="body_shape_entered" from="Chest" to="." method="_on_chest_body_shape_entered"]
+[connection signal="body_shape_exited" from="Chest" to="." method="_on_chest_body_shape_exited"]

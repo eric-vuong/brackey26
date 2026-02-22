@@ -66,6 +66,7 @@ func _on_area_2d_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index
 @warning_ignore("unused_parameter")
 func _on_death_zone_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	pass # Replace with function body.
+	sound.pause_music()
 	main.can_move = false
 	$Knight.flip_h = false
 	$Platformer.flip_sprite(true)
@@ -87,6 +88,7 @@ func _on_explosion_frame_changed() -> void:
 	if exp_frame == 11:
 		await get_tree().create_timer(0.35).timeout
 		$Explosion.queue_free()
+		sound.resume_music()
 
 
 @warning_ignore("unused_parameter")
