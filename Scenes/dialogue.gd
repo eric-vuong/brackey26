@@ -73,6 +73,18 @@ func show_dialogue(dialogue_id: String) -> void:
 				["player", "I managed to grab this red key before I hit the water."],
 				["player", "And it looks like theres a red keyhole down there..."],
 			]
+		"door":
+			text_queue = [
+				["player", "It looks like I'll need both keys to open this door."],
+				["player", "I wonder what could behind it?"]
+			]
+		"credits":
+			text_queue = [
+				["player", '"Game by Robstherapy and CharQuThai"'],
+				["frown", "That's the whole game!?"],
+				["hurt", "I want a refund!"]
+			]
+			
 	show()
 	main.can_move = false
 	_play_line()

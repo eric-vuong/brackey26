@@ -34,9 +34,8 @@ func _on_item_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: 
 		print("got item")
 		$Item.hide()
 		
-		$Item.queue_free()
-		
 		main.has_blue_key = true
+		main.got_key()
 		# Shrink cactus
 		var tween = get_tree().create_tween()
 		tween.tween_property($Cactus, "position", $Cactus.global_position + Vector2(0,400), 3)

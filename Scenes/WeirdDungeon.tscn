@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://3olp7se3ji87" path="res://Scenes/weird_dungeon.gd" id="1_yso33"]
 [ext_resource type="Texture2D" uid="uid://b7xwi7d4twpl3" path="res://Assets/Sprites/Dungeon_tilemap_packed.png" id="2_g5kqe"]
 [ext_resource type="PackedScene" uid="uid://drb6w140nevst" path="res://Scenes/topDownMovement.tscn" id="3_yso33"]
-[ext_resource type="Script" uid="uid://dpddl6y6fg1oi" path="res://Scripts/character_body_2d_right.gd" id="4_g5kqe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_js0ux"]
 texture = ExtResource("1_5jmv5")
@@ -1043,7 +1042,6 @@ position = Vector2(74, 759.00006)
 scale = Vector2(0.555, 0.555)
 collision_layer = 7
 collision_mask = 7
-script = ExtResource("4_g5kqe")
 
 [node name="Camera2D" type="Camera2D" parent="TopDownPlayer" unique_id=1148845298]
 position = Vector2(68, 476)

@@ -16,7 +16,7 @@ size = Vector2(570, 61)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6piwe"]
 size = Vector2(500, 122)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_onea8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjcjr"]
 texture = ExtResource("9_rjcjr")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(128, 128)
@@ -339,7 +339,7 @@ texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSet" id="TileSet_ig16e"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_onea8")
+sources/0 = SubResource("TileSetAtlasSource_rjcjr")
 
 [node name="Dropper" type="Node2D" unique_id=1064637378]
 script = ExtResource("1_hn51c")

@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://52gkkmxk3w0q"]
 
 [ext_resource type="Texture2D" uid="uid://cxxchkrbatr17" path="res://Assets/Sprites/Urban_tilemap_packed.png" id="1_cnms0"]
+[ext_resource type="Script" uid="uid://cjk1ac71hv2y1" path="res://Scenes/credits_room.gd" id="1_vod3c"]
 [ext_resource type="Texture2D" uid="uid://b7xwi7d4twpl3" path="res://Assets/Sprites/Dungeon_tilemap_packed.png" id="2_vod3c"]
 [ext_resource type="PackedScene" uid="uid://drb6w140nevst" path="res://Scenes/topDownMovement.tscn" id="3_7vdex"]
-[ext_resource type="Script" uid="uid://bn474aqynv3qm" path="res://Scripts/character_body_2d_up.gd" id="4_cnms0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ti67t"]
 texture = ExtResource("1_cnms0")
@@ -1054,7 +1054,14 @@ sources/1 = SubResource("TileSetAtlasSource_wp775")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1vk6"]
 size = Vector2(61.71641, 100.52234)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnms0"]
+size = Vector2(71, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vod3c"]
+size = Vector2(248, 243)
+
 [node name="CreditsRoom" type="Node2D" unique_id=1137365791]
+script = ExtResource("1_vod3c")
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=2109022899]
 position = Vector2(-1.4305115e-05, 0)
@@ -1076,7 +1083,8 @@ tile_set = SubResource("TileSet_o72eg")
 [node name="TopDownPlayer" parent="." unique_id=1890390610 instance=ExtResource("3_7vdex")]
 position = Vector2(921, 338)
 scale = Vector2(0.555, 0.555)
-script = ExtResource("4_cnms0")
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopDownPlayer" unique_id=333522905]
 position = Vector2(67.64925, 466.15698)
@@ -1090,3 +1098,48 @@ tile_set = SubResource("TileSet_o72eg")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1312604947]
 position = Vector2(960, 421)
 zoom = Vector2(1.68, 1.68)
+
+[node name="ToPark" type="Area2D" parent="." unique_id=45662420]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToPark" unique_id=1100607970]
+position = Vector2(962, 717.5)
+shape = SubResource("RectangleShape2D_cnms0")
+
+[node name="Credits" type="RichTextLabel" parent="." unique_id=171944819]
+offset_left = 480.0
+offset_top = 173.0
+offset_right = 1532.0
+offset_bottom = 680.0
+text = "Kenney - RPG Urban Pack (https://kenney.nl/assets/rpg-urban-pack)
+
+Kenney - Tiny Dungeon (https://kenney.nl/assets/tiny-dungeon)
+
+Kenny - New Platformer Pack (https://kenney.nl/assets/new-platformer-pack)
+
+Tiny Speck - HD multi-layer Parallex background samples of Glitch game assets (https://opengameart.org/content/hd-multi-layer-parallex-background-samples-of-glitch-game-assets)
+
+JROB774 - Pixel Explosion (12 Frames) (https://opengameart.org/content/pixel-explosion-12-frames)
+
+Szadi art - Pixel Fantasy \"Cave\" (https://szadiart.itch.io/pixel-fantasy-caves)
+
+Szadi art - 2D SoulsLike Series - Animated Knight Character (https://szadiart.itch.io/2d-soulslike-character)
+
+KiyoZ - Duskborne: Elf-Sylvaris (https://kiyoz.itch.io/duskborne-enemy-1)
+
+DrPetter - sfxr (https://www.drpetter.se/project_sfxr.html)
+
+nicubunu - Post Sign (https://opengameart.org/content/post-sign)"
+
+[node name="Tomb" type="Area2D" parent="." unique_id=1575780817]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tomb" unique_id=1133943532]
+position = Vector2(960, 282)
+shape = SubResource("RectangleShape2D_vod3c")
+
+[connection signal="body_shape_entered" from="ToPark" to="." method="_on_to_park_body_shape_entered"]
+[connection signal="body_shape_entered" from="Tomb" to="." method="_on_tomb_body_shape_entered"]
+[connection signal="body_shape_exited" from="Tomb" to="." method="_on_tomb_body_shape_exited"]

@@ -10,7 +10,8 @@ class_name Main
 	"platform_level": null,
 	"dropper": null,
 	"WeirdPark": null,
-	"WeirdDungeon": null
+	"WeirdDungeon": null,
+	"credits_room": null
 }
 ## All movement functions should check this first. Prevent movement inputs (but not physics)
 var can_move: bool = true
@@ -41,6 +42,14 @@ func _input(_event):
 	if Input.is_action_just_pressed("pause"):
 		get_viewport().set_input_as_handled()
 		_on_pause_button_pressed()
+		
+## Update keys
+func got_key():
+	if has_blue_key:
+		$UI/BlueKey.show()
+	if has_red_key:
+		$UI/RedKey.show()
+
 ## Given level name and options, perform transition to new scene
 func change_level(level: String, options: Dictionary = {}):
 	print("Change level")
@@ -112,4 +121,8 @@ func _on_tp_pressed() -> void:
 	#change_level("platform_level",{"position": Vector2(100, 920), "direction": "right"})
 	#change_level("WeirdDungeon", {"position": Vector2(74, 759), "direction": "right"})
 	#change_level("WeirdPark", {"position": Vector2(920, 500), "direction": "left"})
-	change_level("dropper", {"position": Vector2(633, 393), "direction": "right"})
+	#change_level("dropper", {"position": Vector2(633, 393), "direction": "right"})
+	has_blue_key = true
+	has_red_key = true
+	got_key()
+	change_level("credits_room", {"position": Vector2(920, 380), "direction": "up"})

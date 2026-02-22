@@ -129,3 +129,13 @@ scale = Vector2(8.1875, 8.1875)
 sprite_frames = SubResource("SpriteFrames_uk46c")
 animation = &"idle_right"
 autoplay = "idle_down"
+
+[node name="CanInteract" type="RichTextLabel" parent="." unique_id=1781364147]
+visible = false
+offset_left = 49.0
+offset_top = 314.0
+offset_right = 218.0
+offset_bottom = 439.0
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[color=red]![/color]"

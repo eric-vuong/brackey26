@@ -6,6 +6,7 @@ var last_direction: Vector2 = Vector2.LEFT
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var main: Main = get_tree().get_nodes_in_group("Main")[0]
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	if main.can_move == true:
 		process_movement()
@@ -21,12 +22,20 @@ func process_movement() -> void:
 	else:
 		velocity = Vector2.ZERO
 
+func can_interact(can: bool = true):
+	if can == true:
+		$CanInteract.show()
+	elif can == false:
+		$CanInteract.hide()
+
 func set_dir(dir: String):
 	match dir:
 		"right":
 			last_direction = Vector2.RIGHT
 		"left":
 			last_direction = Vector2.LEFT
+		"up":
+			last_direction = Vector2.UP
 	
 func process_animation() -> void:
 	if velocity != Vector2.ZERO:
