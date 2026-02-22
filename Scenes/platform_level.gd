@@ -41,6 +41,7 @@ func _on_item_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: 
 		var tween = get_tree().create_tween()
 		tween.tween_property($Cactus, "position", $Cactus.global_position + Vector2(0,400), 3)
 		# Play dialogue
+		await get_tree().create_timer(0.3).timeout
 		main.show_dialogue("blue_key_got")
 		$Platformer.stop()
 		# Kill item
@@ -64,4 +65,4 @@ func _on_cactus_talk_body_shape_exited(body_rid: RID, body: Node2D, body_shape_i
 
 func _on_to_park_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	pass # Replace with function body.
-	main.change_level("WeirdPark", {"position": Vector2(3800, 538), "direction": "left"})
+	main.change_level("WeirdPark", {"position": Vector2(100, 659), "direction": "right"})

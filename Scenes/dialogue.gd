@@ -59,13 +59,19 @@ func show_dialogue(dialogue_id: String) -> void:
 		"sign":
 			text_queue = [
 				["frown", '"Closed during ongoing construction"'],
-				["player", "I guess I'll come back later then."]
+				["player", "I don't think I can jump over this for some reason."],
+				["player", "Guess I'll come back later then."]
 			]
 		"blue_key_got":
 			text_queue = [
 				["player", 'This key seems important.'],
 				["player", "And it looks like the path to the right is clear."],
 				["player", "I wonder if anything else opened up?"]
+			]
+		"red_key_got":
+			text_queue = [
+				["player", "I managed to grab this red key before I hit the water."],
+				["player", "And it looks like theres a red keyhole down there..."],
 			]
 	show()
 	main.can_move = false

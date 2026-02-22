@@ -127,5 +127,5 @@ script = ExtResource("1_jliok")
 position = Vector2(63, 460)
 scale = Vector2(8.1875, 8.1875)
 sprite_frames = SubResource("SpriteFrames_uk46c")
-animation = &"idle_down"
+animation = &"idle_right"
 autoplay = "idle_down"

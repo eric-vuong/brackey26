@@ -22,6 +22,11 @@ func _physics_process(delta):
 ## Put player here
 func set_player_position(pos: Vector2):
 	$Platformer.global_position = pos
+	# Also check and destroy sign
+	if main.has_blue_key or main.has_red_key:
+		for c in $SignPost.get_children():
+			c.queue_free()
+		$SignPost.hide()
 
 ## Have player face left/right/up/down
 func set_player_direction(direction: String):
@@ -41,7 +46,8 @@ func _on_to_platformer_body_shape_entered(body_rid: RID, body: Node2D, body_shap
 
 @warning_ignore("unused_parameter")
 func _on_to_dropper_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	main.change_level("dropper", {"position": Vector2(633, 393), "direction": "right"})
+	#main.change_level("dropper", {"position": Vector2(633, 393), "direction": "right"})
+	main.change_level("WeirdDungeon", {"position": Vector2(74, 759), "direction": "right"})
 
 
 @warning_ignore("unused_parameter")
@@ -87,6 +93,13 @@ func _on_sign_talk_body_shape_entered(body_rid: RID, body: Node2D, body_shape_in
 	interact_target = "sign"
 
 
+@warning_ignore("unused_parameter")
 func _on_sign_talk_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	$Platformer.can_interact(false)
 	interact_target = ""
+
+
+@warning_ignore("unused_parameter")
+func _on_to_park_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	pass # Replace with function body.
+	main.change_level("WeirdPark", {"position": Vector2(1810, 659), "direction": "left"})
