@@ -11,13 +11,18 @@ var interact_target: String = ""
 
 func _input(_event):
 	if Input.is_action_just_pressed("interact"):
-		if interact_target in ["door"]:
+		if interact_target == "door":
 			if main.can_move:
 				get_viewport().set_input_as_handled()
 				if main.has_blue_key and main.has_red_key:
 					main.change_level("credits_room", {"position": Vector2(920, 380), "direction": "up"})
 				else:
 					main.show_dialogue(interact_target)
+		elif interact_target != "":
+			if main.can_move:
+				get_viewport().set_input_as_handled()
+				main.show_dialogue(interact_target)
+			
 
 ## Put player here
 func set_player_position(pos: Vector2):
@@ -45,5 +50,25 @@ func _on_key_room_body_shape_entered(body_rid: RID, body: Node2D, body_shape_ind
 
 @warning_ignore("unused_parameter")
 func _on_key_room_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	$TopDownPlayer.can_interact(false)
+	interact_target = ""
+
+
+func _on_park_water_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	$TopDownPlayer.can_interact(true)
+	interact_target = "park_water"
+
+
+func _on_park_water_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	$TopDownPlayer.can_interact(false)
+	interact_target = ""
+
+
+func _on_park_top_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	$TopDownPlayer.can_interact(true)
+	interact_target = "park_top"
+
+
+func _on_park_top_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	$TopDownPlayer.can_interact(false)
 	interact_target = ""

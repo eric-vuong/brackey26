@@ -45,7 +45,7 @@ func show_dialogue(dialogue_id: String) -> void:
 		"knight":
 			text_queue = [
 				["knight", "If you wish to pass, you must defeat me."],
-				["player", "Well, I don't have an attack button."],
+				["player", "But, I don't have an attack button."],
 				["player", "Maybe you could just let me past?"],
 				["smile", "Pretty please?"],
 				["knight", "..."],
@@ -65,13 +65,13 @@ func show_dialogue(dialogue_id: String) -> void:
 		"blue_key_got":
 			text_queue = [
 				["player", 'This key seems important.'],
-				["player", "And it looks like the path to the right is clear."],
-				["player", "I wonder if anything else opened up?"]
+				["player", "And it looks like the path to the right is open."]
 			]
 		"red_key_got":
 			text_queue = [
-				["player", "I managed to grab this red key before I hit the water."],
-				["player", "And it looks like theres a red keyhole down there..."],
+				["frown", "Ugh, I'm drenched."],
+				["player", "At least I got this red key."],
+				["player", "But how did I end up here?"],
 			]
 		"door":
 			text_queue = [
@@ -92,7 +92,7 @@ func show_dialogue(dialogue_id: String) -> void:
 			text_queue = [
 				["player", "These are all just mannequins and props."],
 				["player", "The door here is actually just painted on."],
-				["player", "But I see an open doorway up over there..."]
+				["player", "But I see an entrance up by those minecarts..."]
 			]
 		"water":
 			text_queue = [
@@ -106,6 +106,15 @@ func show_dialogue(dialogue_id: String) -> void:
 			text_queue = [
 				["frown", "It doesn't look like theres a way back up..."],
 				["smile", "Good thing fall damage isn't enabled."]
+			]
+		"park_water":
+			text_queue = [
+				["smile", "They look like they are having fun."],
+				["frown", "I think."],
+			]
+		"park_top":
+			text_queue = [
+				["player", "Honestly, I've been to worse parks."]
 			]
 			
 	show()

@@ -18768,6 +18768,18 @@ size = Vector2(38, 49)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tuq1"]
 size = Vector2(78, 37.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg4oe"]
+size = Vector2(53.5, 221)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d7ix"]
+size = Vector2(57, 225)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymnv1"]
+size = Vector2(275.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8onc"]
+size = Vector2(1131, 31)
+
 [node name="TopDownLevel1" type="Node2D" unique_id=1689127316]
 script = ExtResource("1_stu07")
 
@@ -18856,6 +18868,36 @@ collision_mask = 2
 position = Vector2(963, 1002.75)
 shape = SubResource("RectangleShape2D_0tuq1")
 
+[node name="ParkWater" type="Area2D" parent="." unique_id=191966414]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParkWater" unique_id=731613386]
+position = Vector2(396.75, 729)
+shape = SubResource("RectangleShape2D_mg4oe")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ParkWater" unique_id=295737162]
+position = Vector2(1536, 741)
+shape = SubResource("RectangleShape2D_8d7ix")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ParkWater" unique_id=292086958]
+position = Vector2(640, 943)
+shape = SubResource("RectangleShape2D_ymnv1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ParkWater" unique_id=967818226]
+position = Vector2(1315.75, 944)
+shape = SubResource("RectangleShape2D_ymnv1")
+
+[node name="ParkTop" type="Area2D" parent="." unique_id=1602276651]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParkTop" unique_id=1037465087]
+position = Vector2(965, 507)
+shape = SubResource("RectangleShape2D_o8onc")
+
 [connection signal="body_shape_entered" from="ToParallax" to="." method="_on_to_parallax_body_shape_entered"]
 [connection signal="body_shape_entered" from="KeyRoom" to="." method="_on_key_room_body_shape_entered"]
 [connection signal="body_shape_exited" from="KeyRoom" to="." method="_on_key_room_body_shape_exited"]
+[connection signal="body_shape_entered" from="ParkWater" to="." method="_on_park_water_body_shape_entered"]
+[connection signal="body_shape_exited" from="ParkWater" to="." method="_on_park_water_body_shape_exited"]
+[connection signal="body_shape_entered" from="ParkTop" to="." method="_on_park_top_body_shape_entered"]
+[connection signal="body_shape_exited" from="ParkTop" to="." method="_on_park_top_body_shape_exited"]
