@@ -35,7 +35,7 @@ func _on_item_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: 
 		$Item.queue_free()
 		
 		main.has_red_key = true
-
+		main.got_key()
 		# Play dialogue
 		$Item.queue_free()
 		await get_tree().create_timer(1.6).timeout

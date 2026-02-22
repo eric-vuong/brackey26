@@ -18765,6 +18765,9 @@ size = Vector2(80, 194)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stu07"]
 size = Vector2(38, 49)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tuq1"]
+size = Vector2(78, 37.5)
+
 [node name="TopDownLevel1" type="Node2D" unique_id=1689127316]
 script = ExtResource("1_stu07")
 
@@ -18845,4 +18848,14 @@ collision_mask = 4
 position = Vector2(1947, 962.5)
 shape = SubResource("RectangleShape2D_stu07")
 
+[node name="KeyRoom" type="Area2D" parent="." unique_id=584966709]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyRoom" unique_id=1465977650]
+position = Vector2(963, 1002.75)
+shape = SubResource("RectangleShape2D_0tuq1")
+
 [connection signal="body_shape_entered" from="ToParallax" to="." method="_on_to_parallax_body_shape_entered"]
+[connection signal="body_shape_entered" from="KeyRoom" to="." method="_on_key_room_body_shape_entered"]
+[connection signal="body_shape_exited" from="KeyRoom" to="." method="_on_key_room_body_shape_exited"]
